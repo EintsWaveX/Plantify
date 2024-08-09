@@ -1,32 +1,37 @@
 # Plantify
 
-**Deskripsi:**
-Plantify adalah platform web untuk pecinta tanaman yang ingin membeli tanaman hias, pot, dan perlengkapan berkebun lainnya. Platform ini juga menyediakan informasi dan panduan merawat tanaman.
+**Description:**
+Plantify is a web platform for plant lovers who want to buy houseplants, pots, and other gardening supplies. The platform also provides information and guidance on caring for plants.
 
-## Fitur Utama:
+## Main Features
+
 1. **Sign Up & Sign In:**
-   - Pengguna dapat melakukan Sign Up dengan memasukkan identitas sederhana: Full Name, Username, dan Password.
-   - Pengguna dapat Sign In dengan Username dan Password yang sudah didaftarkan.
-   - Admin memiliki akses Sign In yang datanya sudah ditetapkan secara hard-coded dalam database, jadi tidak perlu Sign Up.
+    - Users can Sign Up by entering simple identities: Full Name, Username, and Password.
+    - Users can Sign In with the Username and Password that have been registered.
+    - Admin has Sign In access whose data has been hard-coded in the database, so there is no need to Sign Up.
 
-2. **Pencarian Tanaman:**
-   - Pengguna dapat mencari berbagai jenis tanaman untuk perawatan di rumah, baik tanaman in-door maupun out-door.
-   - Pencarian dapat dilakukan berdasarkan seleksi jenis (in-door atau out-door) atau langsung mencari nama tanaman tanpa memperhatikan case-sensitivity.
+2. **Browsing Plants:**
+    - Users can search for various types of plants for home care, both indoor and outdoor plants.
+    - Search can be done based on type selection (indoor or outdoor) or directly search for the name of the plant without considering case-sensitivity.
 
-3. **CRUD untuk Admin:**
-   - Admin dapat menambah tanaman baru dengan nama, nama latin (opsional), jenis tanaman, stok, dan deskripsi singkat.
-   - Pengeditan tanaman dilakukan dengan menimpa data yang sudah ada.
-   - Penghapusan data tanaman dilakukan dengan memilih tanaman yang akan dihapus.
+3. **CRUD for Admin:**
+    - Admin can add new plants with name, Latin name (optional), plant type, stock, and short description.
+    - Plant editing is done by overwriting existing data.
+    - Deleting plant data is done by selecting the plant to be deleted.
 
-## Fitur Tambahan:
-1. **Artikel dan Panduan Perawatan:**
-   - Platform secara otomatis menyediakan artikel dan panduan sederhana tentang perawatan tanaman in-door dan out-door.
+## Additional Features
 
-2. **Wishlist dan Pemesanan:**
-   - Pengguna dapat memilih jumlah stok tanaman yang ingin dibeli dan menambahkannya ke dalam Wishlist.
-   - Produk dalam Wishlist dapat di-checkout tanpa perlu top-up e-saldo terlebih dahulu setelah konfirmasi pesanan lanjutan.
+1. **Article and Guidance for Nurturing Plants:**
+    - The platform automatically provides simple articles and guides on indoor and outdoor plant care.
 
-## Anggota Proyek:
-- **Darma Al Gani** [GAN]
-- **Muhammad Zaenal Abidin Abdurrahman** [ZEN]
-- **Immanuel Eben Haezer Joseph Aletheia** [NUE]
+2. **Wishlist and On-Purchase:**
+    - Users can select the number of plant stocks they want to buy and add them to the Wishlist.
+    - Products in the Wishlist can be checked out without having to top up the e-balance first after confirming the follow-up order.
+
+---
+
+## Contributors to the Project
+
+- `GAN ::` [Darma Al Gani](https://github.com/Daarma-IC)
+- `ZEN ::` [Muhammad Zaenal Abidin Abdurrahman](https://github.com/Zendin110206)
+- `NUE ::` [Immanuel Eben Haezer Joseph Aletheia](https://github.com/EintsWaveX)
