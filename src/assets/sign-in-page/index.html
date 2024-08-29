@@ -1,11 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Muhammad Zaenal Abidin Abdurrahman, Immanuel Eben Haezer Joseph Aletheia, and Darma Al Gani."
+    />
+    <meta name="description" content="Website to purchase various plants." />
+    <title>Plantify Sign-In Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="kiri">
+        <div class="plant-info">
+          <img
+            src="/Plantify/src/assets/sign-in-page/img/tanaman1.svg"
+            alt="Lavender Plant"
+            class="plant-image"
+          />
+          <h2>Lavender Plant</h2>
+          <p>Lavender blooms emit a calming scent. Bees love them.</p>
+          <div class="dots">
+            <div class="dot solid"></div>
+            <div class="dot hollow"></div>
+            <div class="dot small-hollow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="kanan">
+        <img
+          class="aw"
+          src="/Plantify/src/assets/sign-in-page/img/logo.svg"
+          alt="Plantify Logo"
+          class="logo"
+        />
+        <h2>Welcome Back To Plantify</h2>
+
+        <form class="login-form">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="contoh123"
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="contoh12345"
+            />
+          </div>
+          <a href="/Plantify/src/assets/sign-up-page/index.html" class="forgot-password">Forgot Password?</a>
+
+          <button type="submit" class="sign-in-btn">SIGN IN</button>
+        </form>
+
+        <div class="or-divider">OR</div>
+
+        <button class="google-sign-in">
+          <img
+            src="/Plantify/src/assets/sign-in-page/img/google.svg"
+            alt="Google Logo"
+          />
+          Sign In With Google Account
+        </button>
+
+        <div class="new-user">
+          New User? <a href="/Plantify/src/assets/sign-up-page/index.html" class="create-account">Create Account</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const plantInfo = [
+        {
+          imgSrc: "/Plantify/src/assets/sign-in-page/img/tanaman1.svg",
+          title: "Lavender Plant",
+          description: "Lavender blooms emit a calming scent. Bees love them.",
+        },
+        {
+          imgSrc: "/Plantify/src/assets/sign-in-page/img/tanaman2.svg",
+          title: "Rose Plant",
+          description: "Roses are beautiful and come in many colors.",
+        },
+        {
+          imgSrc: "/Plantify/src/assets/sign-in-page/img/tanaman3.svg",
+          title: "Tulip Plant",
+          description: "Tulips are spring-blooming perennials.",
+        },
+      ];
+
+      let currentIndex = 0;
+
+      function updatePlantInfo() {
+        const plantImage = document.querySelector(".plant-image");
+        const plantTitle = document.querySelector(".kiri h2");
+        const plantDescription = document.querySelector(".kiri p");
+        const dots = document.querySelectorAll(".dot");
+
+        currentIndex = (currentIndex + 1) % plantInfo.length;
+
+        plantImage.src = plantInfo[currentIndex].imgSrc;
+        plantTitle.textContent = plantInfo[currentIndex].title;
+        plantDescription.textContent = plantInfo[currentIndex].description;
+
+        dots.forEach((dot, index) => {
+          dot.classList.remove("solid");
+          dot.classList.remove("hollow");
+          dot.classList.remove("small-hollow");
+          if (index === currentIndex) {
+            dot.classList.add("solid");
+          } else if (index === (currentIndex + 1) % dots.length) {
+            dot.classList.add("hollow");
+          } else if (index === (currentIndex + 2) % dots.length) {
+            dot.classList.add("small-hollow");
+          }
+        });
+      }
+
+      setInterval(updatePlantInfo, 2000);
+    </script>
+  </body>
 </html>
