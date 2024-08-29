@@ -276,6 +276,26 @@ text-align: center;
   .menu ul {
     gap: 15px;
   }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-content {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    right: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -290,6 +310,25 @@ text-align: center;
 
   .menu ul {
     gap: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .text-content {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    right: 0;
   }
 }
 
@@ -311,5 +350,24 @@ text-align: center;
   .menu ul {
     flex-direction: column;
     gap: 5px;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
+  .text-content {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    right: 0;
   }
 }
