@@ -4,7 +4,7 @@
   "description": "**Description:**\r Plantify is a web platform for plant lovers who want to buy houseplants, pots, and other gardening supplies. The platform also provides information and guidance on caring for plants.",
   "main": "index.js",
   "scripts": {
-    "watch": "tailwindcss -i ./src/css/input.css -o ./src/css/style.css --watch"
+    "watch": "tailwindcss build -i ./src/css/input.css -o ./src/css/style.css --watch"
   },
   "keywords": [],
   "author": "",
