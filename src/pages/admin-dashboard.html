@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Muhammad Zaenal Abidin Abdurrahman, Immanuel Eben Haezer Joseph Aletheia, and Darma Al Gani."
+    />
+    <meta name="description" content="Admin dashboard for Plantify." />
+    <title>Plantify Admin Dashboard</title>
+    <link rel="stylesheet" href="/Plantify/src/css/admin-dashboard.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="/Plantify/src/assets/admin-dashboard/logoBeneran.png"
+          alt="Plantify Logo"
+        />
+      </div>
+      <div class="sidebar-profile">
+        <img
+          src="/Plantify/src/assets/admin-dashboard/Anzu Hanashiro.jpg"
+          alt="Profile Picture"
+        />
+        <h3>Nama Admin</h3>
+        <p>plantify@gmail.com</p>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#dashboard">
+            <img
+              id="dashboard"
+              src="/Plantify/src/assets/admin-dashboard/dashboard.svg"
+              alt="Dashboard"
+            />
+            Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="#products">
+            <img
+              id="products"
+              src="/Plantify/src/assets/admin-dashboard/product.svg"
+              alt="Products"
+            />
+            Products</a
+          >
+        </li>
+        <li>
+          <a href="#orders">
+            <img
+              id="orders"
+              src="/Plantify/src/assets/admin-dashboard/order.svg"
+              alt="Orders"
+            />
+            Orders</a
+          >
+        </li>
+        <li>
+          <a href="#customers">
+            <img
+              id="customers"
+              src="/Plantify/src/assets/admin-dashboard/customer.svg"
+              alt="Customers"
+            />
+            Customers</a
+          >
+        </li>
+        <li>
+          <a href="#reports">
+            <img
+              id="reports"
+              src="/Plantify/src/assets/admin-dashboard/reports.svg"
+              alt="Reports"
+            />
+            Reports</a
+          >
+        </li>
+        <li>
+          <a href="#settings">
+            <img
+              id="settings"
+              src="/Plantify/src/assets/admin-dashboard/setting.svg"
+              alt="Settings"
+            />
+            Settings</a
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard">
+      <h2>Dashboard</h2>
+      <div class="cards">
+          <div class="card">
+              <div class="icon">
+                  <img src="/Plantify/src/assets/admin-dashboard/users.svg" alt="Users">
+              </div>
+              <div class="info">
+                  <h3>13</h3>
+                  <p>Total Customers</p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="icon">
+                  <img src="/Plantify/src/assets/admin-dashboard/money.svg" alt="Orders">
+              </div>
+              <div class="info">
+                  <h3>20</h3>
+                  <p>Total Orders</p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="icon">
+                  <img src="/Plantify/src/assets/admin-dashboard/product.svg" alt="Products">
+              </div>
+              <div class="info">
+                  <h3>21</h3>
+                  <p>Flowers Sold</p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="icon">
+                  <img src="/Plantify/src/assets/admin-dashboard/money.svg" alt="Revenue">
+              </div>
+              <div class="info">
+                  <h3>$6969.69</h3>
+                  <p>This Month's Revenue</p>
+              </div>
+          </div>
+      </div>
+      <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Customer Name</th>
+                      <th>Order</th>
+                      <th>Status</th>
+                      <th>Delivery Date</th>
+                      <th>Edit</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><img src="/Plantify/src/assets/admin-dashboard/image.png" alt="John Doe"> John Doe</td>
+                      <td>Roses Bouquet<br><span>5 items</span></td>
+                      <td><span class="status active">Shipped</span></td>
+                      <td>2024-05-01</td>
+                      <td><a href="#">Edit</a></td>
+                  </tr>
+                  <tr>
+                      <td><img src="/Plantify/src/assets/admin-dashboard/avatar-portrait-of-a-kid-child-caucasian-boy-in-round-blue-frame-illustration-in-cartoon-flat-style-vector-removebg-preview.png" alt="Oscar Rhys"> Oscar Rhys</td>
+                      <td>Tulip Bouquet<br><span>3 items</span></td>
+                      <td><span class="status active" id="pending">Pending</span></td>
+                      <td>2024-05-02</td>
+                      <td><a href="#">Edit</a></td>
+                  </tr>
+                  <tr>
+                      <td><img src="/Plantify/src/assets/admin-dashboard/image.png" alt="George Reece"> George Reece</td>
+                      <td>Orchid Bouquet<br><span>2 items</span></td>
+                      <td><span class="status active" id="delivered">Delivered</span></td>
+                      <td>2024-05-03</td>
+                      <td><a href="#">Edit</a></td>
+                  </tr>
+                  <tr>
+                      <td><img src="/Plantify/src/assets/admin-dashboard/image.png" alt="Thomas Joe"> Thomas Joe<br><span>thomas@example.com</span></td>
+                      <td>Lily Bouquet<br><span>4 items</span></td>
+                      <td><span class="status active">Shipped</span></td>
+                      <td>2024-05-04</td>
+                      <td><a href="#">Edit</a></td>
+                  </tr>
+                  <tr>
+                      <td><img src="/Plantify/src/assets/admin-dashboard/avatar-portrait-of-a-kid-child-caucasian-boy-in-round-blue-frame-illustration-in-cartoon-flat-style-vector-removebg-preview.png" alt="Charlie Kyle"> Charlie Kyle<br><span>charlie@example.com</span></td>
+                      <td>Sunflower Bouquet<br><span>6 items</span></td>
+                      <td><span class="status active" id="pending">Pending</span></td>
+                      <td>2024-05-05</td>
+                      <td><a href="#">Edit</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  </body>
+</html>
