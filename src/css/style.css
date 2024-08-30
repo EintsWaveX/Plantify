@@ -1464,10 +1464,6 @@ h3{
 }
 
 @media (min-width: 340px){
-  .sm\:hidden{
-    display: none;
-  }
-
   .sm\:h-20{
     height: 5rem;
   }
