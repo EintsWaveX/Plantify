@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: rgb(246, 196, 139); /* Solid background color */
+  background: linear-gradient(
+    90deg,
+    rgba(120, 255, 42, 0.2) 40%,
+    rgba(120, 255, 42, 0.1) 50%,
+    rgba(248, 242, 235, 1) 100%
+  );
+  background: url(/Plantify/src/assets/admin-login-page/img/image.png);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Changed to stretch to make kanan full height */
+  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better readability */
+  width: 60%;
+  height: 70%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4); /* Increased shadow for better depth */
+  overflow: hidden; /* Ensure child elements do not overflow */
+}
+
+.kiri {
+  width: 50%; /* Adjusted width to move it more to the center */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px; /* Increased padding for better spacing */
+}
+
+.kiri h2 {
+  color: black;
+  margin: 20px;
+  font-size: 2rem; /* Increased font size for better readability */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px; /* Increased padding for better user experience */
+  margin: 15px 0; /* Increased margin for better spacing */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem; /* Increased font size for better readability */
+}
+
+button {
+  width: 100%;
+  padding: 15px; /* Increased padding for better user experience */
+  margin: 15px 0; /* Increased margin for better spacing */
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Changed background color to blue */
+  color: #fff;
+  font-size: 1.2rem; /* Increased font size for better readability */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for smoother hover effect and transform */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.kanan {
+  color: white;
+  text-align: center;
+  width: 50%; /* Adjusted width to match kiri */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px; /* Increased padding for better spacing */
+  background-color: #5344b2; /* Added background color */
+  border-top-left-radius: 100px; /* Adjusted border radius to cover full height */
+  border-bottom-left-radius: 100px; /* Adjusted border radius to cover full height */
+}
+
+.kanan h2 {
+  color: white;
+  margin: 20px;
+  font-size: 2rem; /* Increased font size for better readability */
+}
+
+.kanan img {
+  position: fixed;
+  top: 30%;
+  left: 55%;
+  
+  object-fit: cover;
+}
