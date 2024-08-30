@@ -13,7 +13,7 @@ body {
     rgba(120, 255, 42, 0.1) 50%,
     rgba(248, 242, 235, 1) 100%
   );
-  background: url(/Plantify/src/assets/admin-login-page/img/image.png);
+  background: url(/Plantify/src/assets/admin-login/image.png);
   background-position: center;
   background-size: cover;
   height: 100vh;
