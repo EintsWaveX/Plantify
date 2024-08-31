@@ -1,11 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Muhammad Zaenal Abidin Abdurrahman, Immanuel Eben Haezer Joseph Aletheia, and Darma Al Gani."
+    />
+    <meta name="description" content="Website to purchase various plants." />
+    <title>Plantify Shopping Cart Website</title>
+    <link rel="stylesheet" href="/Plantify/src/css/shopping-cart.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./../assets/landing/logoBeneran.png" alt="logo" />
+      </div>
+      <div class="nav">
+        <button
+          onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'"
+        >
+          Home
+        </button>
+        <button
+          onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'"
+        >
+          About
+        </button>
+        <button
+          onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'"
+        >
+          Contact
+        </button>
+      </div>
+      <div class="menu">
+        <ul>
+          <li>
+            <img
+              src="./../assets/landing/lets-icons--search-alt.svg"
+              alt="search"
+            />
+          </li>
+          <li>
+            <img
+              src="./../assets/landing/icon-park-outline--people.svg"
+              alt="login"
+            />
+          </li>
+          <li>
+            <img
+              src="./../assets/landing/fluent--list-28-filled (1).svg"
+              alt="menu"
+            />
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="shopping-cart">
+        <!-- menu kiri -->
+        <h1 class="title">Shopping Cart</h1>
+
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="product">
+                <img
+                  src="/Plantify/src/assets/shopping-cart/tanaman1.svg"
+                  alt="Pohon-pohonan"
+                />
+                <div class="product-details">
+                  <h2>Pohon-pohonan</h2>
+                  <p class="product-type">Outdoor</p>
+                </div>
+              </td>
+              <td class="quantity">
+                <button class="qty-btn decrease" data-product-id="1">-</button>
+                <span class="qty" data-qty-id="1">1</span>
+                <button class="qty-btn increase" data-product-id="1">+</button>
+              </td>
+              <td class="price" data-price-id="1">$99.99</td>
+            </tr>
+            <tr>
+              <td class="product">
+                <img
+                  src="/Plantify/src/assets/shopping-cart/tanaman2.svg"
+                  alt="Pohon Runcing"
+                />
+                <div class="product-details">
+                  <h2>Pohon Runcing</h2>
+                  <p class="product-type">Indoor</p>
+                </div>
+              </td>
+              <td class="quantity">
+                <button class="qty-btn decrease" data-product-id="2">-</button>
+                <span class="qty" data-qty-id="2">1</span>
+                <button class="qty-btn increase" data-product-id="2">+</button>
+              </td>
+              <td class="price" data-price-id="2">$198.99</td>
+            </tr>
+            <tr>
+              <td class="product">
+                <img
+                  src="/Plantify/src/assets/shopping-cart/tanaman3.svg"
+                  alt="Pohon Barongsai"
+                />
+                <div class="product-details">
+                  <h2>Pohon Barongsai</h2>
+                  <p class="product-type">Indoor</p>
+                </div>
+              </td>
+              <td class="quantity">
+                <button class="qty-btn decrease" data-product-id="3">-</button>
+                <span class="qty" data-qty-id="3">1</span>
+                <button class="qty-btn increase" data-product-id="3">+</button>
+              </td>
+              <td class="price" data-price-id="3">$297.99</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="summary">
+          <h2>Summary</h2>
+          <p>
+            The total cost consists of the tax, insurance, and the shipping
+            charge.
+          </p>
+          <div class="summary-item">
+            <span>Shipping</span>
+            <span class="summary-price" id="shipping-cost">$35.99</span>
+          </div>
+          <div class="summary-item">
+            <span>Tax</span>
+            <span class="summary-price" id="tax-cost">$4.99</span>
+          </div>
+          <div class="summary-item">
+            <span>Insurance</span>
+            <span class="summary-price" id="insurance-cost">$0.99</span>
+          </div>
+          <div class="total-amount">
+            <span>Total Amount</span>
+            <span class="summary-price" id="total-amount">$672.97</span>
+          </div>
+        </div>
+        <h2>⬅️ Continue Shopping</h2>
+      </div>
+      <div class="payment-info">
+        <!-- menu kanan -->
+        <h1>Payment Info</h1>
+        <div class="payment-options">
+          <div class="option">
+            <input type="radio" id="credit-card" name="payment" checked />
+            <label for="credit-card">
+              <img
+                src="/Plantify/src/assets/shopping-cart/credit-card.svg"
+                alt="Credit Card"
+              />Credit Card
+            </label>
+          </div>
+          <div class="option">
+            <input type="radio" id="other-methods" name="payment" />
+            <label for="other-methods">
+              <img
+                src="/Plantify/src/assets/shopping-cart/other-methods.svg"
+                alt="Other Methods"
+              />Other Methods
+            </label>
+          </div>
+        </div>
+        <form class="login-form">
+          <p>Fill Up With Your Information Card!</p>
+          <div class="input-group">
+            <label for="nameOnCard">Name on Card</label>
+            <input
+              type="text"
+              id="nameOnCard"
+              name="nameOnCard"
+              placeholder="ZaenalDarmaBinNuel"
+            />
+            <span class="checkmark"></span>
+          </div>
+          <div class="input-group">
+            <label for="cardNumber">Card Number</label>
+            <input
+              type="text"
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="XXXX XXXX XXXX XXXX"
+              maxlength="19"
+            />
+            <span class="checkmark"></span>
+          </div>
+          <div class="valid-account-message">
+            <a href="#" class="forgot-password" style="display: none"
+              >Valid Account!</a
+            >
+          </div>
+        </form>
+        <div class="expiration-cvv">
+          <div class="expiration">
+            <label for="exp-date">Expiration Date</label>
+            <select id="exp-date" name="day">
+              <!-- Days 1-31 -->
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05" selected>05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+            <select id="year" name="year">
+              <!-- Years 2015-2030 -->
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027" selected>2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </select>
+          </div>
+          <div class="cvv">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" value="123" />
+          </div>
+        </div>
+        <div class="container">
+          <button class="checkout-button">CHECK OUT</button>
+        </div>
+      </div>
+      <!-- Notifikasi Modal -->
+      <div class="modal" id="notification-modal">
+        <div class="modal-content">
+          <span class="close-button" id="close-button">&times;</span>
+          <h2>Your Order is Successful!</h2>
+          <p>Would you be willing to share your
+            experience with us by leaving a review?</p>
+          <div class="modal-buttons">
+            <button class="yes-button">Yes</button>
+            <button class="no-button">No</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/Plantify/src/scripts/shopping-cart.js"></script>
+  </body>
 </html>
