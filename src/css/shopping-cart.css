@@ -683,6 +683,13 @@ input[type="text"].valid {
   color: #ffcc00;
 }
 
+.summary h2{
+  margin-bottom: 20px;
+  margin-top: -5px;
+  position: relative;
+  right: 10px;
+}
+
 
 
 
