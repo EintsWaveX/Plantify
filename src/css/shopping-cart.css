@@ -615,4 +615,74 @@ input[type="text"].valid {
   margin-bottom: 20px;
 }
 
+/* Feedback Form Styles */
+#feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#feedback-form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+#feedback-form input[type="text"],
+#feedback-form input[type="email"],
+#feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Highlight stars from left to right on hover and selection */
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input[type="radio"]:checked ~ label {
+  color: #ffcc00;
+}
+
+/* Highlight selected stars correctly */
+.rating input[type="radio"]:checked + label,
+.rating input[type="radio"]:checked + label ~ label {
+  color: #ffcc00;
+}
+
+
+
 

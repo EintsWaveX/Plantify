@@ -101,22 +101,61 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTotalAmount();
 });
 
+// Menampilkan modal notifikasi ketika tombol checkout ditekan
 document.querySelector('.checkout-button').addEventListener('click', function() {
-    document.getElementById('notification-modal').style.display = 'block';
+  document.getElementById('notification-modal').style.display = 'block';
 });
 
+// Menutup modal notifikasi ketika tombol close ditekan
 document.getElementById('close-button').addEventListener('click', function() {
-    document.getElementById('notification-modal').style.display = 'none';
+  document.getElementById('notification-modal').style.display = 'none';
 });
 
+// Menutup modal notifikasi ketika tombol "No" ditekan
 document.querySelector('.no-button').addEventListener('click', function() {
-    document.getElementById('notification-modal').style.display = 'none';
+  document.getElementById('notification-modal').style.display = 'none';
 });
 
-// You can add more logic for the "Yes" button here
+// Menampilkan modal feedback ketika tombol "Yes" ditekan
 document.querySelector('.yes-button').addEventListener('click', function() {
-    alert('Proceeding to review.');
-    document.getElementById('notification-modal').style.display = 'none';
+  document.getElementById('notification-modal').style.display = 'none';
+  document.getElementById('feedback-modal').style.display = 'block';
 });
+
+// Menutup modal feedback ketika tombol close ditekan
+document.getElementById('close-feedback-button').addEventListener('click', function() {
+  document.getElementById('feedback-modal').style.display = 'none';
+});
+
+// Mengelola perubahan rating bintang
+const stars = document.querySelectorAll('.rating label');
+stars.forEach(star => {
+  star.addEventListener('click', function() {
+      // Reset semua bintang
+      stars.forEach(s => s.style.color = '#ccc');
+      // Set bintang yang dipilih dan yang lebih besar
+      this.style.color = '#ffcc00';
+      let previousStar = this.previousElementSibling;
+      while (previousStar) {
+          if (previousStar.tagName === 'LABEL') {
+              previousStar.style.color = '#ffcc00';
+          }
+          previousStar = previousStar.previousElementSibling;
+      }
+  });
+});
+
+// Mengelola pengiriman form feedback
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Mengambil nilai rating yang dipilih
+  const rating = document.querySelector('input[name="rating"]:checked').value;
+  console.log('Rating:', rating);  // Hanya untuk debug, bisa dihapus atau diganti
+
+  alert('Thank you for your feedback! Rating: ' + rating);
+  document.getElementById('feedback-modal').style.display = 'none';
+});
+
 
 
