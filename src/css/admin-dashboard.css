@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(183, 233, 172, 1) 4%,
+    /* Warna hijau lebih gelap */ rgba(195, 231, 186, 1) 34%,
+    /* Warna hijau lebih gelap */ rgba(211, 228, 204, 1) 68%,
+    /* Warna hijau lebih gelap */ rgba(208, 222, 195, 1) 98%
+      /* Warna hijau lebih gelap */
+  );
+  background-color: #d8d8c4; /* Warna hijau lebih gelap */
+  background-position: center;
+  background-size: cover;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  z-index: 1; /* Menambahkan z-index untuk memastikan sidebar berada di atas */
+}
+
+.sidebar-header img {
+  width: 150px;
+  height: auto;
+  margin-left: 25px;
+}
+
+.sidebar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.sidebar-profile img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #000000;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.sidebar-menu li {
+  margin-bottom: 20px;
+}
+
+.sidebar-menu li a {
+  text-decoration: none;
+  color: #000000; /* Mengubah warna tulisan di sidebar menjadi hitam */
+  font-size: 18px;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #3498db; /* Mengubah warna latar belakang saat hover menjadi biru */
+  color: #ffffff; /* Mengubah warna tulisan saat hover menjadi putih */
+}
+
+.sidebar-menu li a.active {
+  background-color: #3498db; /* Mengubah warna latar belakang saat aktif menjadi biru */
+  color: #ffffff; /* Mengubah warna tulisan saat aktif menjadi putih */
+}
+
+.sidebar-menu li a img {
+  width: 20px;
+  height: auto;
+  position: relative;
+  top: 3px;
+  left: -20px;
+}
+
+.sidebar-menu li a img#dashboard {
+  order: 1;
+  position: relative;
+}
+
+.sidebar-menu li a img#products {
+  order: 2;
+  position: relative;
+  left: -29px;
+}
+
+.sidebar-menu li a img#orders {
+  order: 3;
+  position: relative;
+  left: -36px;
+}
+
+.sidebar-menu li a img#customers {
+  order: 4;
+  position: relative;
+  left: -20px;
+}
+
+.sidebar-menu li a img#reports {
+  order: 5;
+  position: relative;
+  left: -33px;
+}
+
+.sidebar-menu li a img#settings {
+  order: 6;
+  position: relative;
+  left: -32px;
+}
+
+.dashboard {
+    margin-left: 250px; /* Menambahkan margin-left untuk menghindari tumpang tindih dengan sidebar */
+    background-color: #ecf5f4;
+    height: 100vh;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 250px); /* Menambahkan width untuk mengisi ruang kosong di sebelah kanan */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #e9eef7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.card .info h3 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.card .info p {
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table thead {
+    background-color: #f8f9fa;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    color: #333;
+}
+
+table th {
+    font-weight: 600;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+table tbody tr:last-child {
+    border-bottom: none;
+}
+
+table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+table td span {
+    display: block;
+    color: #666;
+}
+
+.status.active {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.status.active#pending {
+    background-color: #ff0000c8;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.status.active#delivered {
+    background-color: #04e34fdc;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
