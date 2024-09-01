@@ -1,8 +1,8 @@
 const images = [
-    './img/tanaman_e.jpeg',
-    './img/istockphoto-1380361370-612x612-removebg-preview (1).png',
-    './img/image-removebg-preview.png',
-    './img/tanaman_f.jpg'
+    './../assets/landing/tanaman_e.jpeg',
+    './../assets/landing/istockphoto-1380361370-612x612-removebg-preview (1).png',
+    './../assets/landing/image-removebg-preview.png',
+    './../assets/landing/tanaman_f.jpg'
 ];
 
 let currentIndex = 0;
