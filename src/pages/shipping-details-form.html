@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Details - Plantify</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #78ff2a33 0%, #f8f2eb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .notification, .shipping-form-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .notification {
+            text-align: center;
+        }
+
+        .notification h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .notification p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .shipping-form-container {
+            display: none;
+        }
+
+        h2 {
+            color: #28a745;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #888;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -12px;
+            left: 5px;
+            font-size: 14px;
+            background: white;
+            padding: 0 5px;
+            color: #28a745;
+        }
+
+        .submit-btn, .notification-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover, .notification-btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="notification">
+        <h2>Welcome to Plantify!</h2>
+        <p>Hello! To ensure your plants reach you safely, we need some additional information. Please fill out the shipping details on the next screen. Your green companions are eager to meet you!</p>
+        <button class="notification-btn">Continue to Shipping Details</button>
+    </div>
+
+    <div class="shipping-form-container">
+        <h2>Shipping Details</h2>
+        <form id="shippingForm">
+            <div class="input-group">
+                <input type="text" id="fullName" name="fullName" required placeholder=" ">
+                <label for="fullName">Full Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" required placeholder=" ">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="phone" name="phone" required placeholder=" ">
+                <label for="phone">Phone</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="address" name="address" required placeholder=" ">
+                <label for="address">Address</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="city" name="city" required placeholder=" ">
+                <label for="city">City</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="postalCode" name="postalCode" required placeholder=" ">
+                <label for="postalCode">Postal Code</label>
+            </div>
+            <button type="submit" class="submit-btn">Confirm Order</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const notification = document.querySelector('.notification');
+            const notificationBtn = document.querySelector('.notification-btn');
+            const shippingForm = document.querySelector('.shipping-form-container');
+
+            if (notificationBtn) {
+                notificationBtn.addEventListener('click', function() {
+                    if (notification) notification.style.display = 'none';
+                    if (shippingForm) shippingForm.style.display = 'block';
+                });
+            }
+
+            const form = document.getElementById('shippingForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Here you would typically send the form data to your server
+                    alert('Order confirmed! Thank you for shopping with Plantify.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
