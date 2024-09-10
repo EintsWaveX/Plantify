@@ -59,7 +59,7 @@
           </div>
           <a href="./../assets/forgot-password-page/index.html" class="forgot-password">Forgot Password?</a>
 
-          <button type="submit" class="sign-in-btn">SIGN IN</button>
+          <button id="sign-in-btn" type="button" class="sign-in-btn">SIGN IN</button>
         </form>
 
         <div class="or-divider">OR</div>
@@ -125,6 +125,13 @@
       }
 
       setInterval(updatePlantInfo, 2000);
+      
+      document.getElementById('sign-in-btn').addEventListener('click', function() {
+        // Mengirimkan form secara manual
+        document.querySelector('.login-form').submit();
+        // Mengarahkan ke halaman yang diinginkan
+        window.location.href = '/Plantify/src/pages/shipping-details-form.html';
+      });
     </script>
   </body>
 </html>
