@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product - Plantify Admin Dashboard</title>
+    <link rel="stylesheet" href="/Plantify/src/css/admin-dashboard.css" />
+    <link rel="stylesheet" href="/Plantify/src/css/add-product.css" />
+  </head>
+  <body>
+    <!-- Existing sidebar code here -->
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="/Plantify/src/assets/admin-dashboard/logoBeneran.png"
+          alt="Plantify Logo"
+        />
+      </div>
+      <div class="sidebar-profile">
+        <img
+          src="/Plantify/src/assets/admin-dashboard/Anzu Hanashiro.jpg"
+          alt="Profile Picture"
+        />
+        <h3>Nama Admin</h3>
+        <p>plantify@gmail.com</p>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="/Plantify/src/pages/admin-dashboard.html">
+            <img
+              id="dashboard"
+              src="/Plantify/src/assets/admin-dashboard/dashboard.svg"
+              alt="Dashboard"
+            />
+            Dashboard</a
+          >
+        </li>
+        <li>
+          <a href="#products" class="active">
+            <img
+              id="products"
+              src="/Plantify/src/assets/admin-dashboard/product.svg"
+              alt="Products"
+            />
+            Products</a
+          >
+        </li>
+        <li>
+          <a href="#orders">
+            <img
+              id="orders"
+              src="/Plantify/src/assets/admin-dashboard/order.svg"
+              alt="Orders"
+            />
+            Orders</a
+          >
+        </li>
+        <li>
+          <a href="#customers">
+            <img
+              id="customers"
+              src="/Plantify/src/assets/admin-dashboard/customer.svg"
+              alt="Customers"
+            />
+            Customers</a
+          >
+        </li>
+        <li>
+          <a href="#reports">
+            <img
+              id="reports"
+              src="/Plantify/src/assets/admin-dashboard/reports.svg"
+              alt="Reports"
+            />
+            Reports</a
+          >
+        </li>
+        <li>
+          <a href="#settings">
+            <img
+              id="settings"
+              src="/Plantify/src/assets/admin-dashboard/setting.svg"
+              alt="Settings"
+            />
+            Settings</a
+          >
+        </li>
+      </ul>
+    </aside>
+    <div class="dashboard">
+      <h2>Products</h2>
+      <div class="admin-panel">
+        <h2>Add New Product</h2>
+        <form class="product-form">
+          <!-- Product Name -->
+          <label for="product-name">Product Name:</label>
+          <input
+            type="text"
+            id="product-name"
+            name="product-name"
+            placeholder="Enter product name"
+            required
+          />
+
+          <!-- Category -->
+          <label for="category">Category:</label>
+          <select id="category" name="category" required>
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
+
+          <!-- Scientific Name -->
+          <label for="scientific-name">Scientific Name:</label>
+          <input
+            type="text"
+            id="scientific-name"
+            name="scientific-name"
+            placeholder="Enter scientific name"
+            required
+          />
+
+          <!-- Price -->
+          <label for="price">Price (USD):</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            placeholder="Enter price"
+            step="0.01"
+            required
+          />
+
+          <!-- Image Upload -->
+          <label for="image">Product Image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+          />
+
+          <!-- Default Rating -->
+          <input type="hidden" id="rating" name="rating" value="5" />
+
+          <button type="submit">Add Product</button>
+        </form>
+
+        <!-- Section for Displaying Products Sorted by Category -->
+        <div class="product-list">
+          <h2>Product List</h2>
+          <button onclick="sortProducts('indoor')">Sort by Indoor</button>
+          <button onclick="sortProducts('outdoor')">Sort by Outdoor</button>
+
+          <!-- Products Display Table -->
+          <table>
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Scientific Name</th>
+                <th>Price</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody id="product-table">
+              <!-- Dynamically populated rows go here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sidebarLinks = document.querySelectorAll(".sidebar-menu a");
+
+        sidebarLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            // Jika link bukan ke halaman eksternal, cegah navigasi default
+            if (
+              !this.getAttribute("href").startsWith("http") &&
+              !this.getAttribute("href").endsWith(".html")
+            ) {
+              e.preventDefault();
+            }
+
+            // Hapus kelas active dari semua link
+            sidebarLinks.forEach((l) => l.classList.remove("active"));
+
+            // Tambahkan kelas active ke link yang diklik
+            this.classList.add("active");
+          });
+        });
+      });
+
+      // Fungsi untuk menyimpan status menu aktif
+      function setActiveMenu(menuId) {
+        localStorage.setItem("activeMenu", menuId);
+      }
+
+      // Fungsi untuk mendapatkan dan menetapkan menu aktif saat halaman dimuat
+      function getAndSetActiveMenu() {
+        const activeMenu = localStorage.getItem("activeMenu");
+        if (activeMenu) {
+          const menuLink = document.querySelector(
+            `.sidebar-menu a[href$="${activeMenu}"]`
+          );
+          if (menuLink) {
+            menuLink.classList.add("active");
+          }
+        }
+      }
+
+      // Panggil fungsi saat halaman dimuat
+      getAndSetActiveMenu();
+    </script>
+  </body>
+</html>

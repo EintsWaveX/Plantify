@@ -262,3 +262,8 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.sidebar-menu li a.active {
+  background-color: #3498db;
+  color: #ffffff;
+}

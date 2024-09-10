@@ -1,0 +1,82 @@
+.admin-panel {
+    margin: 30px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .product-form label {
+    font-weight: bold;
+  }
+  
+  .product-form input,
+  .product-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .product-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .product-form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .product-list {
+    margin-top: 40px;
+  }
+  
+  .product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .product-list th,
+  .product-list td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-list th {
+    background-color: #f1f1f1;
+  }
+  
+  .product-list tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .product-list button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2ecc71;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .product-list button:hover {
+    background-color: #27ae60;
+  }
+  
