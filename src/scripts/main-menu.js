@@ -49,3 +49,27 @@ const swiper = new Swiper('.swiper', {
 
 
 /*~~~~~~~~~~~~~~~ SCROLL REVEAL ANIMATION ~~~~~~~~~~~~~~~*/
+
+/* handle the search functionality:*/
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const popularCards = document.querySelectorAll('.popular_card');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+
+        popularCards.forEach(card => {
+            const plantName = card.querySelector('h3').textContent.toLowerCase();
+            const scientificName = card.querySelector('p').textContent.toLowerCase();
+
+            if (plantName.includes(searchTerm) || scientificName.includes(searchTerm)) {
+                card.style.display = 'block';
+                if (searchTerm !== '') {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
