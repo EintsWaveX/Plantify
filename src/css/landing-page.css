@@ -23,7 +23,10 @@ body {
 @media (max-width: 1200px) {
   body {
     background: none;
-    background-color: #edede4;
+    background-color: #edede4;  }
+  .container{
+    align-items: center;
+    margin-right: 20px;
   }
 }
 
@@ -34,6 +37,7 @@ header {
   padding: 20px;
   padding-top: 0;
   padding-right: 0;
+  position: relative;
 }
 
 .nav {
@@ -47,7 +51,7 @@ header {
   background-color: #c1dcb0; /* Green */
   color: white;
   border: none;
-  padding: 10px 60px; /* Jarak kanan kiri lebih jauh dibanding atas bawah */
+  padding: 10px 60px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -60,11 +64,11 @@ header {
     transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
     color 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
   font-weight: 600;
-  font-size: x-large; /* Membuat teks lebih besar */
+  font-size: x-large;
 }
 
 .nav button:hover {
-  background-color: #aeeb75; /* Darker green */
+  background-color: #aeeb75;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
   color: black;
   transform: scale(1.1);
@@ -115,7 +119,7 @@ main {
 
 .text-content {
   max-width: 600px;
-  margin-right: 147px; /* Menambah jarak antara text-content dan image-container */
+  margin-right: 147px;
   margin-left: 2rem;
 }
 
@@ -150,7 +154,6 @@ h1 {
   font-size: 72px;
   color: #142e38;
   margin: 10px 0;
-  font-style: arial;
   font-weight: 700;
 }
 
@@ -176,7 +179,7 @@ h1 {
 }
 
 .cta-btn:hover {
-  background-color: #1f5d3a; /* Darker green */
+  background-color: #1f5d3a;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
   font-size: 18px;
@@ -186,7 +189,7 @@ h1 {
   display: flex;
   gap: 20px;
   margin-bottom: 30px;
-  align-items: center; /* Menyelaraskan posisi button dan logo */
+  align-items: center;
 }
 
 .social-icons img {
@@ -194,7 +197,7 @@ h1 {
   height: 40px;
   cursor: pointer;
   position: relative;
-  top: -10px; /* Mengatur posisi logo secara manual agar sedikit lebih rendah */
+  top: -10px;
 }
 
 .social-icons img:hover {
@@ -248,126 +251,353 @@ footer {
 .footer-text {
   padding: 0px;
   position: relative;
-  left: 50px; /* Mengurangi jarak ke kiri */
+  left: 50px;
   font-size: 20px;
-}
-
-.footer-text {
-  position: relative;
-  right: 150px;
-  font-size: 20px;
-  text-align:center;
+  text-align: center;
 }
 
 .aw {
-text-align: center;
+  text-align: center;
 }
 
-@media (max-width: 1024px) {
-  .nav button {
-    padding: 8px 50px;
-    font-size: large;
+header,
+main,
+footer {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Centering and Smooth Transitions */
+.container,
+.text-content,
+.image-container,
+.footer-text,
+.footer-image {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Hide hamburger menu by default */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.hamburger-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background-color: #c1dcb0;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+.show-mobile-nav {
+  display: flex;
+}
+
+.mobile-nav button {
+  background-color: transparent;
+  border: none;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #244131;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-nav button:hover {
+  background-color: #aeeb75;
+  color: black;
+}
+
+/* Media Queries */
+
+/* Tablets and small desktops */
+
+@media (max-width: 991px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
   }
 
-  .logo img {
-    height: 60px;
+  .nav {
+    display: none;
   }
 
-  .menu ul {
-    gap: 15px;
+  .menu {
+    display: none;
   }
 
+  .hamburger-menu {
+    display: block;
+    z-index: 1100;
+  }
+
+  /* Main content adjustments */
   .container {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
   }
 
   .text-content {
-    margin-right: 0;
-    margin-left: 0;
+    margin: 0;
     text-align: center;
+    z-index: 200;
+  }
+
+  .text-content h1 {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 18px;
   }
 
   .buttons {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    display : none;
   }
 
   .image-container {
-    right: 0;
+    margin-top: 20px;
+    position: static;
+    z-index: 150;
+  }
+
+  .circle-image {
+    width: 80%;
+    max-width: 400px;
+    border-width: 20px;
+    margin: 0 auto;
+  }
+
+  /* Footer adjustments */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+    z-index: 500;
+    display: none;
+
+  }
+
+  .footer-text {
+    position: static;
+    margin-top: 20px;
+    padding: 0 20px;
+    font-size: 18px;
+    z-index: 550;
+  }
+
+  .footer-image {
+    z-index: 600;
+  }
+
+  .footer-image img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .mobile-nav {
+    z-index: 2000;
   }
 }
 
-@media (max-width: 768px) {
-  .nav button {
-    padding: 6px 40px;
-    font-size: medium;
+/* Media Queries */
+
+/* Tablets and small desktops */
+@media (max-width: 991px) {
+  /* Sembunyikan footer */
+  footer {
+    display: none;
   }
 
-  .logo img {
-    height: 50px;
+  /* Pengaturan ulang urutan elemen dalam container */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
   }
 
-  .menu ul {
+  .image-container {
+    order: 1;
+    margin-top: 20px;
+    position: static;
+    z-index: 150;
+  }
+
+  .buttons {
+    order: 2;
+    display: flex;
+    justify-content: center;
     gap: 10px;
+    margin: 20px 0;
+    z-index: 300;
   }
 
+  .text-content {
+    display: flex;
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+    text-align: center;
+    flex-direction: column; /* Agar elemen tetap ditata secara vertikal */
+    margin: 0 auto;
+    z-index: 200;
+    order: 2;
+  }
+
+  .text-content h1 {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  /* Sembunyikan tombol di dalam .text-content jika ada */
+  .text-content .buttons {
+    display: none;
+  }
+
+  /* Atur ulang elemen footer */
+  footer {
+    display: none;
+  }
+
+  /* Atur ulang elemen lainnya jika diperlukan */
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  /* Sembunyikan footer */
+  footer {
+    display: none;
+  }
+
+  /* Penyesuaian elemen */
   .container {
     padding: 10px;
-  }
-
-  .text-content {
-    margin-right: 0;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .buttons {
-    flex-direction: column;
-    align-items: center;
+    z-index: 100;
   }
 
   .image-container {
-    right: 0;
+    order: 1;
+    margin-top: 20px;
+    position: static;
+    z-index: 150;
   }
+
+  .buttons {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    z-index: 300;
+  }
+
+  .text-content {
+    display: flex;
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+    text-align: center;
+    flex-direction: column; /* Agar elemen tetap ditata secara vertikal */
+    margin: 0 auto;
+    z-index: 200;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  /* Sembunyikan tombol di dalam .text-content jika ada */
+  .text-content .buttons {
+    display: none;
+  }
+
+  /* Atur ulang elemen lainnya jika diperlukan */
 }
 
-@media (max-width: 481px) {
-  .nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav button {
-    padding: 5px 30px;
-    font-size: small;
-  }
-
-  .logo img {
-    height: 40px;
-  }
-
-  .menu ul {
-    flex-direction: column;
-    gap: 5px;
+/* Tambahkan media query baru untuk layar antara 992px dan 1200px */
+@media (max-width: 1200px) and (min-width: 992px) {
+  /* Sembunyikan footer */
+  footer {
+    display: none;
   }
 
   .container {
-    padding: 5px;
-  }
-
-  .text-content {
-    margin-right: 0;
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .buttons {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
   }
 
   .image-container {
-    right: 0;
+    order: 1;
+    margin-top: 20px;
+    position: static;
+    z-index: 150;
+  }
+
+  .buttons {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    z-index: 300;
+  }
+
+  .text-content {
+    display: flex;
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+    text-align: center;
+    flex-direction: column; /* Agar elemen tetap ditata secara vertikal */
+    margin: 0 auto;
+    z-index: 200;
+    order: 2;
+  }
+
+  /* Sembunyikan tombol di dalam .text-content jika ada */
+  .text-content .buttons {
+    display: none;
   }
 }
+
+
+

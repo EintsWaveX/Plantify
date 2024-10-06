@@ -6,9 +6,225 @@
     <title>Add Product - Plantify Admin Dashboard</title>
     <link rel="stylesheet" href="/Plantify/src/css/admin-dashboard.css" />
     <link rel="stylesheet" href="/Plantify/src/css/add-product.css" />
+    <style>
+      /* Base Styles for Admin Panel */
+      .admin-panel {
+        margin: 30px;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .admin-panel h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .product-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .product-form label {
+        font-weight: bold;
+      }
+
+      .product-form input,
+      .product-form select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .product-form button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .product-form button:hover {
+        background-color: #2980b9;
+      }
+
+      .product-list {
+        margin-top: 40px;
+      }
+
+      .product-list h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .product-list table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .product-list th,
+      .product-list td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .product-list th {
+        background-color: #f1f1f1;
+      }
+
+      .product-list tbody tr:hover {
+        background-color: #f9f9f9;
+      }
+
+      /* Actions Buttons Container */
+      .action-buttons {
+        display: flex;
+        gap: 10px; /* Space between buttons */
+      }
+
+      /* Edit and Delete Button Styles */
+      .action-buttons .edit-button,
+      .action-buttons .delete-button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 14px;
+        flex: 1; /* Make buttons take equal space */
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Specific Styles for Edit Button */
+      .action-buttons .edit-button {
+        background-color: #2ecc71; /* Green */
+      }
+
+      .action-buttons .edit-button:hover {
+        background-color: #27ae60;
+      }
+
+      /* Specific Styles for Delete Button */
+      .action-buttons .delete-button {
+        background-color: #e74c3c; /* Red */
+      }
+
+      .action-buttons .delete-button:hover {
+        background-color: #c0392b;
+      }
+
+      /* Responsive Styles */
+
+      /* For Tablets and Small Screens */
+      @media (max-width: 768px) {
+        /* Hide less important columns */
+        .product-list th:nth-child(4),
+  .product-list td:nth-child(4), /* Scientific Name */
+  .product-list th:nth-child(6),
+  .product-list td:nth-child(6)  /* Rating */ {
+          display: none;
+        }
+      }
+
+      /* For Mobile Devices */
+      @media (max-width: 480px) {
+        /* Hide additional columns on smaller screens */
+        .product-list th:nth-child(3),
+  .product-list td:nth-child(3), /* Category */
+  .product-list th:nth-child(5),
+  .product-list td:nth-child(5)  /* Price */ {
+          display: none;
+        }
+
+        /* Convert table to block layout */
+        .product-list table,
+        .product-list thead,
+        .product-list tbody,
+        .product-list th,
+        .product-list td,
+        .product-list tr {
+          display: block;
+        }
+
+        /* Hide table headers */
+        .product-list thead {
+          display: none;
+        }
+
+        .product-list tr {
+          margin-bottom: 15px;
+          border-bottom: 1px solid #ddd;
+          padding: 15px;
+          background-color: #fff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+        }
+
+        .product-list td {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border: none;
+        }
+
+        .product-list td::before {
+          content: attr(data-label);
+          font-weight: bold;
+          color: #333;
+          flex-basis: 40%;
+        }
+
+        /* Adjust image size */
+        .product-list td img {
+          width: 60px;
+          height: auto;
+          border-radius: 4px;
+        }
+
+        /* Adjust button layout */
+        .action-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .action-buttons .edit-button,
+        .action-buttons .delete-button {
+          width: 100%;
+          margin: 5px 0;
+          padding: 8px;
+          font-size: 14px;
+        }
+
+        /* Enhance spacing for form elements */
+        .product-form label,
+        .product-form input,
+        .product-form select,
+        .product-form button {
+          font-size: 14px;
+        }
+
+        .product-form button {
+          padding: 10px;
+        }
+
+        /* Enhance headings */
+        .admin-panel h2,
+        .product-list h2 {
+          font-size: 22px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Existing sidebar code here -->
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
@@ -33,18 +249,18 @@
               src="/Plantify/src/assets/admin-dashboard/dashboard.svg"
               alt="Dashboard"
             />
-            Dashboard</a
-          >
+            Dashboard
+          </a>
         </li>
         <li>
-          <a href="#products" class="active">
+          <a href="/Plantify/src/pages/add-product.html">
             <img
               id="products"
               src="/Plantify/src/assets/admin-dashboard/product.svg"
               alt="Products"
             />
-            Products</a
-          >
+            Products
+          </a>
         </li>
         <li>
           <a href="#orders">
@@ -53,8 +269,8 @@
               src="/Plantify/src/assets/admin-dashboard/order.svg"
               alt="Orders"
             />
-            Orders</a
-          >
+            Orders
+          </a>
         </li>
         <li>
           <a href="#customers">
@@ -63,8 +279,8 @@
               src="/Plantify/src/assets/admin-dashboard/customer.svg"
               alt="Customers"
             />
-            Customers</a
-          >
+            Customers
+          </a>
         </li>
         <li>
           <a href="#reports">
@@ -73,8 +289,8 @@
               src="/Plantify/src/assets/admin-dashboard/reports.svg"
               alt="Reports"
             />
-            Reports</a
-          >
+            Reports
+          </a>
         </li>
         <li>
           <a href="#settings">
@@ -83,12 +299,20 @@
               src="/Plantify/src/assets/admin-dashboard/setting.svg"
               alt="Settings"
             />
-            Settings</a
-          >
+            Settings
+          </a>
         </li>
       </ul>
     </aside>
+
+    <!-- Main Dashboard -->
     <div class="dashboard">
+      <div class="top-nav">
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+          &#9776;
+        </button>
+        <h2>Products</h2>
+      </div>
       <h2>Products</h2>
       <div class="admin-panel">
         <h2>Add New Product</h2>
@@ -152,6 +376,7 @@
           <h2>Product List</h2>
           <button onclick="sortProducts('indoor')">Sort by Indoor</button>
           <button onclick="sortProducts('outdoor')">Sort by Outdoor</button>
+          <button onclick="renderProductTable()">Show All</button>
 
           <!-- Products Display Table -->
           <table>
@@ -163,58 +388,478 @@
                 <th>Scientific Name</th>
                 <th>Price</th>
                 <th>Rating</th>
+                <th>Actions</th>
+                <!-- Combined Actions column -->
               </tr>
             </thead>
             <tbody id="product-table">
-              <!-- Dynamically populated rows go here -->
+              <!-- Product rows will be added dynamically -->
             </tbody>
           </table>
         </div>
       </div>
     </div>
+
+    <!-- Edit Product Modal -->
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Edit Product</h2>
+        <form id="edit-product-form">
+          <!-- Hidden input to store the row being edited -->
+          <input type="hidden" id="edit-row-index" />
+
+          <!-- Product Name -->
+          <label for="edit-product-name">Product Name:</label>
+          <input
+            type="text"
+            id="edit-product-name"
+            name="edit-product-name"
+            required
+          />
+
+          <!-- Category -->
+          <label for="edit-category">Category:</label>
+          <select id="edit-category" name="edit-category" required>
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
+
+          <!-- Scientific Name -->
+          <label for="edit-scientific-name">Scientific Name:</label>
+          <input
+            type="text"
+            id="edit-scientific-name"
+            name="edit-scientific-name"
+            required
+          />
+
+          <!-- Price -->
+          <label for="edit-price">Price (USD):</label>
+          <input
+            type="number"
+            id="edit-price"
+            name="edit-price"
+            step="0.01"
+            required
+          />
+
+          <!-- Image Upload -->
+          <label for="edit-image">Product Image:</label>
+          <input
+            type="file"
+            id="edit-image"
+            name="edit-image"
+            accept="image/*"
+          />
+
+          <!-- Rating -->
+          <label for="edit-rating">Rating:</label>
+          <input
+            type="number"
+            id="edit-rating"
+            name="edit-rating"
+            min="1"
+            max="5"
+            required
+          />
+
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const sidebarLinks = document.querySelectorAll(".sidebar-menu a");
 
+        // Function to set 'active' class based on current URL or hash
+        function setActiveLink() {
+          const currentPath = window.location.pathname;
+          const currentHash = window.location.hash;
+
+          sidebarLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            const linkPath = href.split(/[?#]/)[0]; // Remove query and hash
+
+            if (linkPath === currentPath || href === currentHash) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+
+        // Call the function when the page loads
+        setActiveLink();
+
+        // Event listener for sidebar links
         sidebarLinks.forEach((link) => {
           link.addEventListener("click", function (e) {
-            // Jika link bukan ke halaman eksternal, cegah navigasi default
-            if (
-              !this.getAttribute("href").startsWith("http") &&
-              !this.getAttribute("href").endsWith(".html")
-            ) {
-              e.preventDefault();
-            }
+            const href = this.getAttribute("href");
 
-            // Hapus kelas active dari semua link
+            // Remove 'active' class from all links
             sidebarLinks.forEach((l) => l.classList.remove("active"));
 
-            // Tambahkan kelas active ke link yang diklik
+            // Add 'active' class to the clicked link
             this.classList.add("active");
+
+            if (href.startsWith("#")) {
+              e.preventDefault();
+              // Navigate internally using hash
+              window.location.hash = href;
+            } else if (!href.endsWith(".html")) {
+              e.preventDefault();
+              // Handle other internal navigation if needed
+            } else {
+              // Let the browser navigate to the new page
+            }
           });
         });
-      });
 
-      // Fungsi untuk menyimpan status menu aktif
-      function setActiveMenu(menuId) {
-        localStorage.setItem("activeMenu", menuId);
-      }
+        // Toggle Sidebar
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.querySelector(".sidebar");
+        const dashboard = document.querySelector(".dashboard");
 
-      // Fungsi untuk mendapatkan dan menetapkan menu aktif saat halaman dimuat
-      function getAndSetActiveMenu() {
-        const activeMenu = localStorage.getItem("activeMenu");
-        if (activeMenu) {
-          const menuLink = document.querySelector(
-            `.sidebar-menu a[href$="${activeMenu}"]`
-          );
-          if (menuLink) {
-            menuLink.classList.add("active");
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent event bubbling
+          sidebar.classList.toggle("active");
+          hamburger.classList.toggle("active");
+          document.body.classList.toggle("sidebar-active");
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+            sidebar.classList.remove("active");
+            hamburger.classList.remove("active");
+            document.body.classList.remove("sidebar-active");
           }
-        }
-      }
+        });
 
-      // Panggil fungsi saat halaman dimuat
-      getAndSetActiveMenu();
+        let products = []; // Array to store product data
+
+        // Load products from localStorage on page load
+        products = JSON.parse(localStorage.getItem("products")) || [];
+        renderProductTable();
+
+        // Function to render the product table
+        function renderProductTable() {
+          const tableBody = document.getElementById("product-table");
+          tableBody.innerHTML = ""; // Clear table
+        
+          products.forEach((product, index) => {
+            const row = document.createElement("tr");
+        
+            const cellImage = document.createElement("td");
+            cellImage.setAttribute("data-label", "Image");
+            const img = document.createElement("img");
+            img.src = product.imageUrl;
+            img.alt = product.name;
+            img.style.width = "50px"; // Adjust as needed
+            cellImage.appendChild(img);
+        
+            const cellName = document.createElement("td");
+            cellName.setAttribute("data-label", "Name");
+            cellName.textContent = product.name;
+        
+            const cellCategory = document.createElement("td");
+            cellCategory.setAttribute("data-label", "Category");
+            cellCategory.textContent = product.category;
+        
+            const cellScientificName = document.createElement("td");
+            cellScientificName.setAttribute("data-label", "Scientific Name");
+            cellScientificName.textContent = product.scientificName;
+        
+            const cellPrice = document.createElement("td");
+            cellPrice.setAttribute("data-label", "Price");
+            cellPrice.textContent = `$${product.price.toFixed(2)}`;
+        
+            const cellRating = document.createElement("td");
+            cellRating.setAttribute("data-label", "Rating");
+            cellRating.textContent = `${product.rating} Stars`;
+        
+            const cellActions = document.createElement("td");
+            cellActions.setAttribute("data-label", "Actions");
+            const actionDiv = document.createElement("div");
+            actionDiv.classList.add("action-buttons");
+        
+            const editButton = document.createElement("a");
+            editButton.href = "#";
+            editButton.textContent = "Edit";
+            editButton.classList.add("edit-button");
+            editButton.dataset.index = index;
+        
+            const deleteButton = document.createElement("a");
+            deleteButton.href = "#";
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-button");
+            deleteButton.dataset.index = index;
+        
+            actionDiv.appendChild(editButton);
+            actionDiv.appendChild(deleteButton);
+            cellActions.appendChild(actionDiv);
+        
+            row.appendChild(cellImage);
+            row.appendChild(cellName);
+            row.appendChild(cellCategory);
+            row.appendChild(cellScientificName);
+            row.appendChild(cellPrice);
+            row.appendChild(cellRating);
+            row.appendChild(cellActions);
+        
+            tableBody.appendChild(row);
+          });
+        }
+        
+        // Make sure to expose this function to the global scope
+        window.renderProductTable = renderProductTable;
+
+        // Expose sortProducts to the global scope
+        window.sortProducts = function (category) {
+          const tableBody = document.getElementById("product-table");
+          tableBody.innerHTML = ""; // Clear table
+
+          const filteredProducts = products.filter(
+            (product) =>
+              product.category.toLowerCase() === category.toLowerCase()
+          );
+
+          filteredProducts.forEach((product, index) => {
+            const row = document.createElement("tr");
+
+            const cellImage = document.createElement("td");
+            cellImage.setAttribute("data-label", "Image");
+            const img = document.createElement("img");
+            img.src = product.imageUrl;
+            img.alt = product.name;
+            img.style.width = "50px"; // Adjust as needed
+            cellImage.appendChild(img);
+
+            const cellName = document.createElement("td");
+            cellName.setAttribute("data-label", "Name");
+            cellName.textContent = product.name;
+
+            const cellCategory = document.createElement("td");
+            cellCategory.setAttribute("data-label", "Category");
+            cellCategory.textContent = product.category;
+
+            const cellScientificName = document.createElement("td");
+            cellScientificName.setAttribute("data-label", "Scientific Name");
+            cellScientificName.textContent = product.scientificName;
+
+            const cellPrice = document.createElement("td");
+            cellPrice.setAttribute("data-label", "Price");
+            cellPrice.textContent = `$${product.price.toFixed(2)}`;
+
+            const cellRating = document.createElement("td");
+            cellRating.setAttribute("data-label", "Rating");
+            cellRating.textContent = `${product.rating} Stars`;
+
+            const cellActions = document.createElement("td");
+            cellActions.setAttribute("data-label", "Actions");
+            const actionDiv = document.createElement("div");
+            actionDiv.classList.add("action-buttons");
+
+            const editButton = document.createElement("a");
+            editButton.href = "#";
+            editButton.textContent = "Edit";
+            editButton.classList.add("edit-button");
+            // Use the index from products array
+            const productIndex = products.indexOf(product);
+            editButton.dataset.index = productIndex;
+
+            const deleteButton = document.createElement("a");
+            deleteButton.href = "#";
+            deleteButton.textContent = "Delete";
+            deleteButton.classList.add("delete-button");
+            deleteButton.dataset.index = productIndex;
+
+            actionDiv.appendChild(editButton);
+            actionDiv.appendChild(deleteButton);
+            cellActions.appendChild(actionDiv);
+
+            row.appendChild(cellImage);
+            row.appendChild(cellName);
+            row.appendChild(cellCategory);
+            row.appendChild(cellScientificName);
+            row.appendChild(cellPrice);
+            row.appendChild(cellRating);
+            row.appendChild(cellActions);
+
+            tableBody.appendChild(row);
+          });
+        };
+
+        // Event listener for adding a new product
+        document
+          .querySelector(".product-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const imageInput = document.getElementById("image");
+            if (imageInput.files.length === 0) {
+              alert("Please select an image for the product.");
+              return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              const product = {
+                name: document.getElementById("product-name").value,
+                category: document.getElementById("category").value,
+                scientificName:
+                  document.getElementById("scientific-name").value,
+                price: parseFloat(document.getElementById("price").value),
+                imageUrl: e.target.result, // Data URL
+                rating: 5, // Default rating
+              };
+
+              // Add product to the products array
+              products.push(product);
+
+              // Save to localStorage
+              localStorage.setItem("products", JSON.stringify(products));
+
+              // Re-render the table
+              renderProductTable();
+
+              // Optionally, reset the form
+              document.querySelector(".product-form").reset();
+            };
+
+            reader.readAsDataURL(imageInput.files[0]);
+          });
+
+        // Edit Modal Elements
+        const modal = document.getElementById("edit-modal");
+        const closeButton = document.querySelector(".close-button");
+        const editForm = document.getElementById("edit-product-form");
+
+        // Function to open the modal with product data
+        function openEditModal(index) {
+          const product = products[index];
+          document.getElementById("edit-row-index").value = index;
+          document.getElementById("edit-product-name").value = product.name;
+          document.getElementById("edit-category").value = product.category;
+          document.getElementById("edit-scientific-name").value =
+            product.scientificName;
+          document.getElementById("edit-price").value = product.price;
+          document.getElementById("edit-rating").value = product.rating;
+
+          // Show the modal
+          modal.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+          modal.style.display = "none";
+        }
+
+        // Event listener for close button
+        closeButton.addEventListener("click", closeModal);
+
+        // Event listener for clicks outside the modal content
+        window.addEventListener("click", function (event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        });
+
+        // Event listener for edit and delete buttons
+        document
+          .getElementById("product-table")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.matches("a.edit-button")) {
+              event.preventDefault();
+              const index = event.target.dataset.index;
+              openEditModal(index);
+            }
+
+            // Handle delete button clicks
+            if (event.target && event.target.matches("a.delete-button")) {
+              event.preventDefault();
+              const index = event.target.dataset.index;
+              deleteProduct(index);
+            }
+          });
+
+        // Function to delete a product
+        function deleteProduct(index) {
+          const confirmation = confirm(
+            "Are you sure you want to delete this product?"
+          );
+          if (!confirmation) return;
+
+          // Remove product from the array
+          products.splice(index, 1);
+
+          // Update localStorage
+          localStorage.setItem("products", JSON.stringify(products));
+
+          // Re-render the table
+          renderProductTable();
+        }
+
+        // Event listener for edit form submission
+        editForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const index = document.getElementById("edit-row-index").value;
+          const updatedProduct = {
+            name: document.getElementById("edit-product-name").value,
+            category: document.getElementById("edit-category").value,
+            scientificName: document.getElementById("edit-scientific-name")
+              .value,
+            price: parseFloat(document.getElementById("edit-price").value),
+            imageUrl: products[index].imageUrl, // Keep existing image unless changed
+            rating: parseInt(document.getElementById("edit-rating").value),
+          };
+
+          const imageInput = document.getElementById("edit-image");
+          if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              updatedProduct.imageUrl = e.target.result;
+
+              // Update the products array
+              products[index] = updatedProduct;
+
+              // Save to localStorage
+              localStorage.setItem("products", JSON.stringify(products));
+
+              // Re-render the table
+              renderProductTable();
+
+              // Close the modal
+              closeModal();
+
+              // Reset the form
+              editForm.reset();
+            };
+            reader.readAsDataURL(imageInput.files[0]);
+          } else {
+            // No new image, proceed
+            // Update the products array
+            products[index] = updatedProduct;
+
+            // Save to localStorage
+            localStorage.setItem("products", JSON.stringify(products));
+
+            // Re-render the table
+            renderProductTable();
+
+            // Close the modal
+            closeModal();
+
+            // Reset the form
+            editForm.reset();
+          }
+        });
+      });
     </script>
   </body>
 </html>

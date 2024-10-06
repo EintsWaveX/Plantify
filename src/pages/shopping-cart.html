@@ -13,6 +13,18 @@
   </head>
   <body>
     <header>
+      <!-- Tambahkan ini di dalam header -->
+      <div class="hamburger-menu" onclick="toggleDropdownMenu()">
+        <img src="/Plantify/src/assets/landing/menu.svg" alt="Menu" />
+      </div>
+
+      <!-- Tambahkan ini setelah .hamburger-menu -->
+      <div class="dropdown-menu" id="dropdown-menu">
+        <button onclick="location.href='#'">Home</button>
+        <button onclick="location.href='#'">About</button>
+        <button onclick="location.href='#'">Contact</button>
+      </div>
+
       <div class="logo">
         <img src="./../assets/landing/logoBeneran.png" alt="logo" />
       </div>
@@ -150,7 +162,6 @@
             <span class="summary-price" id="total-amount">$672.97</span>
           </div>
         </div>
-        <h2>⬅️ Continue Shopping</h2>
       </div>
       <div class="payment-info">
         <!-- menu kanan -->
@@ -269,6 +280,7 @@
         <div class="container">
           <button class="checkout-button">CHECK OUT</button>
         </div>
+        <h2>⬅️ Continue Shopping</h2>
       </div>
       <!-- Notifikasi Modal -->
       <div class="modal" id="notification-modal">

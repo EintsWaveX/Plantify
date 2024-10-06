@@ -36,7 +36,10 @@
           alt="Plantify Logo"
           class="logo"
         />
-        <h2> <img src="./../assets/sign-up/waver_hand.svg" alt="">Welcome To Plantify</h2>
+        <h2>
+          <img src="./../assets/sign-up/waver_hand.svg" alt="" />Welcome To
+          Plantify
+        </h2>
 
         <form class="login-form">
           <p>Let's create your account!</p>
@@ -59,22 +62,28 @@
             />
           </div>
           <a href="#" class="forgot-password">Valid Account!</a>
-
-          <button type="submit" class="sign-in-btn">SIGN UP</button>
+          <button
+            type="button"
+            class="sign-in-btn"
+            onclick="location.href='./sign-in.html'"
+          >
+            SIGN UP
+          </button>
         </form>
 
         <div class="or-divider">OR</div>
 
-        <button class="google-sign-in">
-          <img
-            src="./../assets/sign-up/google.svg"
-            alt="Google Logo"
-          />
+        <button
+          class="google-sign-in"
+          onclick="location.href='/Plantify/src/pages/shipping-details-form.html'"
+        >
+          <img src="./../assets/sign-up/google.svg" alt="Google Logo" />
           Sign Up With Google Account
         </button>
 
         <div class="new-user">
-          Already have an account ? <a href="#" class="create-account">Log In</a>
+          Already have an account ?
+          <a href="./sign-in.html" class="create-account">Log In</a>
         </div>
       </div>
     </div>

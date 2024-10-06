@@ -15,3 +15,13 @@ function changeImage() {
 }
 
 setInterval(changeImage, 2000); // Ganti gambar setiap 2 detik
+
+function toggleMobileNav() {
+    var mobileNav = document.getElementById('mobileNav');
+    if (mobileNav.style.display === "flex") {
+        mobileNav.style.display = "none";
+    } else {
+        mobileNav.style.display = "flex";
+    }
+}
+

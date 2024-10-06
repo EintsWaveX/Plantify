@@ -7,9 +7,9 @@
       name="author"
       content="Muhammad Zaenal Abidin Abdurrahman, Immanuel Eben Haezer Joseph Aletheia, and Darma Al Gani."
     />
-    <meta name="description" content="Website to purchase various plants."/>
+    <meta name="description" content="Website to purchase various plants." />
     <title>Plantify</title>
-    <link rel="stylesheet" href="/Plantify/src/css/landing-page.css"/>
+    <link rel="stylesheet" href="/Plantify/src/css/landing-page.css" />
   </head>
   <body>
     <header>
@@ -17,34 +17,90 @@
         <img src="./../assets/landing/logoBeneran.png" alt="logo" />
       </div>
       <div class="nav">
-        <button onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">Home</button>
-        <button onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">About</button>
-        <button onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">Contact</button>
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          Home
+        </button>
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          About
+        </button>
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          Contact
+        </button>
       </div>
       <div class="menu">
         <ul>
-          <li><img src="./../assets/landing/lets-icons--search-alt.svg" alt="search" /></li>
-          <li><img src="./../assets/landing/icon-park-outline--people.svg" alt="login" /></li>
-          <li><img src="./../assets/landing/fluent--list-28-filled (1).svg" alt="menu" /></li>
+          <li>
+            <img
+              src="./../assets/landing/lets-icons--search-alt.svg"
+              alt="search"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            />
+          </li>
+          <li>
+            <img
+              src="./../assets/landing/icon-park-outline--people.svg"
+              alt="login"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            />
+          </li>
+          <li>
+            <img
+              src="./../assets/landing/fluent--list-28-filled (1).svg"
+              alt="menu"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            />
+          </li>
         </ul>
+      </div>
+      <div class="hamburger-menu" onclick="toggleMobileNav()">
+        <img src="/Plantify/src/assets/landing/menu.svg" alt="Menu" />
+      </div>
+      <div class="mobile-nav" id="mobileNav">
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          Home
+        </button>
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          About
+        </button>
+        <button onclick="location.href='/Plantify/src/pages/sign-in.html'">
+          Contact
+        </button>
       </div>
     </header>
     <main>
       <div class="container">
         <div class="text-content">
           <div class="buttons">
-            <button class="btn" onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">Indoor Plant</button>
-            <button class="btn" onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">Outdoor Plant</button>
+            <button
+              class="btn"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            >
+              Indoor Plant
+            </button>
+            <button
+              class="btn"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            >
+              Outdoor Plant
+            </button>
           </div>
-          <h1>KEEP YOUR PLANTS HEALTY</h1>
+          <h1>KEEP YOUR PLANTS HEALTHY</h1>
           <p class="description">
-            Store That Sells Gardening Supplies, As Seeds, Plants, Fertilizer
-            And Tools - Making Them Perfect For Your Home And Work Space
+            Store that sells gardening supplies, as seeds, plants, fertilizer,
+            and tools - making them perfect for your home and workspace.
           </p>
           <div class="social-icons">
-            <button class="cta-btn" onclick="location.href='/Plantify/src/assets/sign-in-page/index.html'">See More</button>
+            <button
+              class="cta-btn"
+              onclick="location.href='/Plantify/src/pages/sign-in.html'"
+            >
+              See More
+            </button>
             <img src="./../assets/landing/la--linkedin.svg" alt="LinkedIn" />
-            <img src="./../assets/landing/hugeicons--twitter.svg" alt="Twitter" />
+            <img
+              src="./../assets/landing/hugeicons--twitter.svg"
+              alt="Twitter"
+            />
             <img src="./../assets/landing/mdi--instagram.svg" alt="Instagram" />
           </div>
         </div>
@@ -58,19 +114,22 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <div class="footer-image">
+        <img src="./../assets/landing/tanaman_a.png" alt="Plant Image" />
+      </div>
+      <div class="footer-text">
+        <p>
+          <span class="aw">
+            The findings suggest that “indoor plants can reduce physiological
+            and psychological stress,”
+          </span>
+          <br />
+          The smell of flowers such as jasmine and lavender, for example, has
+          been shown to relieve <em>stress and anxiety</em>.
+        </p>
+      </div>
+    </footer>
     <script src="/Plantify/src/scripts/landing-page.js"></script>
   </body>
-  <footer class="footer">
-    <div class="footer-image">
-      <img src="./../assets/landing/tanaman_a.png" alt="Plant Image" />
-    </div>
-    <div class="footer-text">
-      <p>
-        <span class="aw">The findings suggest that “indoor plants can reduce physiological and
-        psychological stress,”</span><br />
-        The smell of flowers such as jasmine and lavender, for example, has been
-        shown to relieve <em>stress and anxiety</em>
-      </p>
-    </div>
-  </footer>
 </html>

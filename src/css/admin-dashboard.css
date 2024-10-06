@@ -18,20 +18,18 @@ body {
   background: radial-gradient(
     circle at 30% 50%,
     rgba(183, 233, 172, 1) 4%,
-    /* Warna hijau lebih gelap */ rgba(195, 231, 186, 1) 34%,
-    /* Warna hijau lebih gelap */ rgba(211, 228, 204, 1) 68%,
-    /* Warna hijau lebih gelap */ rgba(208, 222, 195, 1) 98%
-      /* Warna hijau lebih gelap */
+    rgba(195, 231, 186, 1) 34%,
+    rgba(211, 228, 204, 1) 68%,
+    rgba(208, 222, 195, 1) 98%
   );
-  background-color: #d8d8c4; /* Warna hijau lebih gelap */
   background-position: center;
   background-size: cover;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   padding: 20px;
-  color: rgb(0, 0, 0);
-  z-index: 1; /* Menambahkan z-index untuk memastikan sidebar berada di atas */
+  color: #000;
+  z-index: 1;
 }
 
 .sidebar-header img {
@@ -53,8 +51,9 @@ body {
   width: 100px;
   height: auto;
   border-radius: 50%;
-  border: 2px solid #000000;
+  border: 2px solid #000;
 }
+
 .sidebar-menu {
   list-style: none;
   padding: 0;
@@ -65,13 +64,9 @@ body {
   text-align: center;
 }
 
-.sidebar-menu li {
-  margin-bottom: 20px;
-}
-
 .sidebar-menu li a {
   text-decoration: none;
-  color: #000000; /* Mengubah warna tulisan di sidebar menjadi hitam */
+  color: #000;
   font-size: 18px;
   padding: 10px 15px;
   display: block;
@@ -79,14 +74,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sidebar-menu li a:hover {
-  background-color: #3498db; /* Mengubah warna latar belakang saat hover menjadi biru */
-  color: #ffffff; /* Mengubah warna tulisan saat hover menjadi putih */
-}
-
+.sidebar-menu li a:hover,
 .sidebar-menu li a.active {
-  background-color: #3498db; /* Mengubah warna latar belakang saat aktif menjadi biru */
-  color: #ffffff; /* Mengubah warna tulisan saat aktif menjadi putih */
+  background-color: #3498db;
+  color: #fff;
 }
 
 .sidebar-menu li a img {
@@ -97,173 +88,419 @@ body {
   left: -20px;
 }
 
+/* Specific icon adjustments using classes */
 .sidebar-menu li a img#dashboard {
-  order: 1;
-  position: relative;
+  left: -20px; 
 }
 
 .sidebar-menu li a img#products {
-  order: 2;
-  position: relative;
-  left: -29px;
+  left: -29px; 
 }
 
 .sidebar-menu li a img#orders {
-  order: 3;
-  position: relative;
   left: -36px;
 }
 
 .sidebar-menu li a img#customers {
-  order: 4;
-  position: relative;
   left: -20px;
 }
 
 .sidebar-menu li a img#reports {
-  order: 5;
-  position: relative;
   left: -33px;
 }
 
 .sidebar-menu li a img#settings {
-  order: 6;
-  position: relative;
   left: -32px;
 }
 
 .dashboard {
-    margin-left: 250px; /* Menambahkan margin-left untuk menghindari tumpang tindih dengan sidebar */
-    background-color: #ecf5f4;
-    height: 100vh;
-    max-width: 1200px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(100% - 250px); /* Menambahkan width untuk mengisi ruang kosong di sebelah kanan */
+  margin-left: 250px;
+  height: 100vh;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 250px);
 }
 
 h2 {
-    margin-bottom: 20px;
-    color: #333;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .card {
-    background-color: #e9eef7;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    margin: 0 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #e9eef7;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .card .icon img {
-    width: 40px;
-    margin-bottom: 10px;
+  width: 40px;
+  margin-bottom: 10px;
 }
 
 .card .info h3 {
-    font-size: 24px;
-    margin: 0;
-    color: #333;
+  font-size: 24px;
+  margin: 0;
+  color: #333;
 }
 
 .card .info p {
-    color: #666;
-    margin: 5px 0 0;
+  color: #666;
+  margin: 5px 0 0;
 }
 
 .table-container {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
 table thead {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
-table th, table td {
-    padding: 15px;
-    text-align: left;
-    color: #333;
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  color: #333;
 }
 
 table th {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 table tbody tr {
-    border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 
 table tbody tr:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 table td img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-    vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 table td span {
-    display: block;
-    color: #666;
+  display: block;
+  color: #666;
 }
 
-.status.active {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 1rem;
-    text-align: center;
+/* Status Base Styles */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  height: 30px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.status.active#pending {
-    background-color: #ff0000c8;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 1rem;
-    text-align: center;
+/* Specific Status Styles */
+span.status.shipped {
+  background-color: #f1c40f; /* Yellow */
+  color: #000;
 }
 
-.status.active#delivered {
-    background-color: #04e34fdc;
-    color: rgb(0, 0, 0);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 1rem;
-    text-align: center;
+span.status.pending {
+  background-color: #e74c3c; /* Red */
+  color: #fff;
 }
+
+span.status.delivered {
+  background-color: #2ecc71; /* Green */
+  color: #fff;
+}
+
+/* Hover Effect (Optional) */
+.status:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling within Status Badges */
+.status i {
+  margin-right: 5px;
+  /* Ensure icons inherit the text color */
+  color: inherit;
+}
+
+
 
 a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Adjust the admin panel padding */
+  .admin-panel {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  /* Stack the form labels and inputs */
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust form inputs and labels */
+  .product-form label {
+    font-size: 14px;
+  }
+
+  .product-form input,
+  .product-form select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Adjust button size */
+  .product-form button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Hide less important columns */
+  .product-list th:nth-child(4),
+  .product-list td:nth-child(4),
+  .product-list th:nth-child(6),
+  .product-list td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Further adjustments for smaller screens */
+  .product-form label,
+  .product-form input,
+  .product-form select {
+    font-size: 12px;
+  }
+
+  .product-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .admin-panel h2,
+  .product-list h2 {
+    font-size: 20px;
+  }
+
+  .sidebar {
+    width: 200px;
+  }
+
+  .product-form {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide additional columns on smaller screens */
+  .product-list th:nth-child(3),
+  .product-list td:nth-child(3),
+  .product-list th:nth-child(5),
+  .product-list td:nth-child(5) {
+    display: none;
+  }
+
+  /* Transform table into block display */
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+    display: block;
+  }
+
+  /* Hide table headers */
+  .product-list thead {
+    display: none;
+  }
+
+  .product-list tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .product-list td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .product-list td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Adjust image size */
+  .product-list td img {
+    width: 60px;
+    height: auto;
+  }
+}
+
+/* Top Navigation */
+.top-nav {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.top-nav h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger.active {
+  color: #3498db;
+}
+
+@media (max-width: 768px) {
+  /* Hide sidebar and show top-nav */
+  .sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    transition: left 0.3s ease;
+    z-index: 3;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .dashboard {
+    margin-left: 0;
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .top-nav {
+    display: flex;
+  }
+
+  /* Overlay when sidebar is active */
+  body::before {
+    content: '';
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  body.sidebar-active::before {
+    display: block;
+  }
+
+  /* Adjust sidebar menu for mobile */
+  .sidebar-menu li a {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .sidebar-menu li a img {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+/* Tambahkan ini di bawah media query yang ada atau buat media query baru */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard {
+    margin-left: 0;
+    padding: 20px 10px; /* Sesuaikan padding horizontal */
+    width: 100%;
+  }
 }
 
 .sidebar-menu li a.active {
   background-color: #3498db;
-  color: #ffffff;
+  color: #fff;
 }
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping Details - Plantify</title>
     <style>
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,20 +14,24 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #78ff2a33 0%, #f8f2eb 100%);
+            background: linear-gradient(135deg, rgba(120, 255, 42, 0.2) 0%, #f8f2eb 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             color: #333;
+            padding: 20px;
+            font-size: 18px; /* Increased base font size */
+            line-height: 1.6;
         }
 
+        /* Container Styles */
         .notification, .shipping-form-container {
             background-color: white;
             border-radius: 20px;
-            padding: 40px;
-            width: 90%;
-            max-width: 600px;
+            padding: 40px 50px; /* Increased padding */
+            width: 100%;
+            max-width: 650px; /* Slightly increased max-width */
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
@@ -37,13 +42,14 @@
 
         .notification h2 {
             color: #28a745;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 32px; /* Increased font size */
         }
 
         .notification p {
-            font-size: 18px;
+            font-size: 20px; /* Increased font size */
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .shipping-form-container {
@@ -52,35 +58,37 @@
 
         h2 {
             color: #28a745;
-            margin-bottom: 30px;
-            font-size: 28px;
+            margin-bottom: 35px;
+            font-size: 32px; /* Increased font size */
             font-weight: 700;
             text-align: center;
         }
 
+        /* Input Group Styles */
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 25px; /* Increased margin */
             position: relative;
         }
 
         label {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 16px; /* Adjusted for larger input */
+            left: 16px;
             color: #888;
-            font-size: 16px;
+            font-size: 18px; /* Increased font size */
             transition: all 0.3s ease;
             pointer-events: none;
+            background: transparent;
         }
 
         input[type="text"],
         input[type="email"],
         input[type="tel"] {
             width: 100%;
-            padding: 10px;
+            padding: 16px 16px; /* Increased padding */
             border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px; /* Slightly increased border-radius */
+            font-size: 18px; /* Increased font size */
             transition: all 0.3s ease;
         }
 
@@ -94,22 +102,23 @@
         input:focus + label,
         input:not(:placeholder-shown) + label {
             top: -12px;
-            left: 5px;
+            left: 10px;
             font-size: 14px;
             background: white;
             padding: 0 5px;
             color: #28a745;
         }
 
+        /* Button Styles */
         .submit-btn, .notification-btn {
             background-color: #28a745;
             color: white;
-            padding: 15px;
+            padding: 16px; /* Increased padding */
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             width: 100%;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px; /* Increased font size */
             font-weight: 600;
             transition: all 0.3s ease;
             margin-top: 20px;
@@ -119,6 +128,84 @@
             background-color: #218838;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .notification, .shipping-form-container {
+                padding: 35px 25px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .notification h2 {
+                font-size: 28px;
+            }
+
+            .notification p {
+                font-size: 18px;
+            }
+
+            .input-group {
+                margin-bottom: 22px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"] {
+                padding: 14px 14px;
+                font-size: 16px;
+            }
+
+            label {
+                font-size: 16px;
+            }
+
+            .submit-btn, .notification-btn {
+                padding: 14px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notification, .shipping-form-container {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .notification h2 {
+                font-size: 24px;
+            }
+
+            .notification p {
+                font-size: 16px;
+            }
+
+            .input-group {
+                margin-bottom: 18px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"] {
+                padding: 12px 12px;
+                font-size: 16px;
+            }
+
+            label {
+                font-size: 14px;
+            }
+
+            .submit-btn, .notification-btn {
+                padding: 12px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -156,7 +243,7 @@
                 <input type="text" id="postalCode" name="postalCode" required placeholder=" ">
                 <label for="postalCode">Postal Code</label>
             </div>
-            <button type="submit" class="submit-btn">Confirm Order</button>
+            <button type="button" class="submit-btn" onclick="location.href='./main-menu.html'">Confirm Order</button>
         </form>
     </div>
 
