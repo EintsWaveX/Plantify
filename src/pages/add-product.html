@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Product - Plantify Admin Dashboard</title>
-    <link rel="stylesheet" href="/Plantify/src/css/admin-dashboard.css" />
-    <link rel="stylesheet" href="/Plantify/src/css/add-product.css" />
+    <link rel="stylesheet" href="../css/add-product.css" />
+    <link rel="stylesheet" href="../css/admin-dashboard.css" />
     <style>
       /* Base Styles for Admin Panel */
       .admin-panel {
@@ -229,13 +229,13 @@
     <aside class="sidebar">
       <div class="sidebar-header">
         <img
-          src="/Plantify/src/assets/admin-dashboard/logoBeneran.png"
+          src="../assets/landing/logoBeneran.png"
           alt="Plantify Logo"
         />
       </div>
       <div class="sidebar-profile">
         <img
-          src="/Plantify/src/assets/admin-dashboard/Anzu Hanashiro.jpg"
+          src="../assets/admin-dashboard/Anzu Hanashiro.jpg"
           alt="Profile Picture"
         />
         <h3>Nama Admin</h3>
@@ -243,20 +243,20 @@
       </div>
       <ul class="sidebar-menu">
         <li>
-          <a href="/Plantify/src/pages/admin-dashboard.html">
+          <a href="../pages/admin-dashboard.php">
             <img
               id="dashboard"
-              src="/Plantify/src/assets/admin-dashboard/dashboard.svg"
+              src="../assets/admin-dashboard/dashboard.svg"
               alt="Dashboard"
             />
             Dashboard
           </a>
         </li>
         <li>
-          <a href="/Plantify/src/pages/add-product.html">
+          <a href="../pages/add-product.html" class="active">
             <img
               id="products"
-              src="/Plantify/src/assets/admin-dashboard/product.svg"
+              src="../assets/admin-dashboard/product.svg"
               alt="Products"
             />
             Products
@@ -266,7 +266,7 @@
           <a href="#orders">
             <img
               id="orders"
-              src="/Plantify/src/assets/admin-dashboard/order.svg"
+              src="../assets/admin-dashboard/order.svg"
               alt="Orders"
             />
             Orders
@@ -276,7 +276,7 @@
           <a href="#customers">
             <img
               id="customers"
-              src="/Plantify/src/assets/admin-dashboard/customer.svg"
+              src="../assets/admin-dashboard/customer.svg"
               alt="Customers"
             />
             Customers
@@ -286,7 +286,7 @@
           <a href="#reports">
             <img
               id="reports"
-              src="/Plantify/src/assets/admin-dashboard/reports.svg"
+              src="../assets/admin-dashboard/reports.svg"
               alt="Reports"
             />
             Reports
@@ -296,7 +296,7 @@
           <a href="#settings">
             <img
               id="settings"
-              src="/Plantify/src/assets/admin-dashboard/setting.svg"
+              src="../assets/admin-dashboard/setting.svg"
               alt="Settings"
             />
             Settings
@@ -549,10 +549,10 @@
         function renderProductTable() {
           const tableBody = document.getElementById("product-table");
           tableBody.innerHTML = ""; // Clear table
-        
+
           products.forEach((product, index) => {
             const row = document.createElement("tr");
-        
+
             const cellImage = document.createElement("td");
             cellImage.setAttribute("data-label", "Image");
             const img = document.createElement("img");
@@ -560,48 +560,48 @@
             img.alt = product.name;
             img.style.width = "50px"; // Adjust as needed
             cellImage.appendChild(img);
-        
+
             const cellName = document.createElement("td");
             cellName.setAttribute("data-label", "Name");
             cellName.textContent = product.name;
-        
+
             const cellCategory = document.createElement("td");
             cellCategory.setAttribute("data-label", "Category");
             cellCategory.textContent = product.category;
-        
+
             const cellScientificName = document.createElement("td");
             cellScientificName.setAttribute("data-label", "Scientific Name");
             cellScientificName.textContent = product.scientificName;
-        
+
             const cellPrice = document.createElement("td");
             cellPrice.setAttribute("data-label", "Price");
             cellPrice.textContent = `$${product.price.toFixed(2)}`;
-        
+
             const cellRating = document.createElement("td");
             cellRating.setAttribute("data-label", "Rating");
             cellRating.textContent = `${product.rating} Stars`;
-        
+
             const cellActions = document.createElement("td");
             cellActions.setAttribute("data-label", "Actions");
             const actionDiv = document.createElement("div");
             actionDiv.classList.add("action-buttons");
-        
+
             const editButton = document.createElement("a");
             editButton.href = "#";
             editButton.textContent = "Edit";
             editButton.classList.add("edit-button");
             editButton.dataset.index = index;
-        
+
             const deleteButton = document.createElement("a");
             deleteButton.href = "#";
             deleteButton.textContent = "Delete";
             deleteButton.classList.add("delete-button");
             deleteButton.dataset.index = index;
-        
+
             actionDiv.appendChild(editButton);
             actionDiv.appendChild(deleteButton);
             cellActions.appendChild(actionDiv);
-        
+
             row.appendChild(cellImage);
             row.appendChild(cellName);
             row.appendChild(cellCategory);
@@ -609,11 +609,11 @@
             row.appendChild(cellPrice);
             row.appendChild(cellRating);
             row.appendChild(cellActions);
-        
+
             tableBody.appendChild(row);
           });
         }
-        
+
         // Make sure to expose this function to the global scope
         window.renderProductTable = renderProductTable;
 

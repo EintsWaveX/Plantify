@@ -715,6 +715,43 @@ input[type="text"].valid {
 
 /* Untuk layar dengan lebar maksimum 1024px (tablet landscape) */
 @media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .shopping-cart,
+  .payment-info {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .shopping-cart h1,
+  .payment-info h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.9em;
+  }
+
+  .product img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .summary h2 {
+    font-size: 1.2em;
+  }
+
+  .checkout-button {
+    width: 100%;
+    font-size: 16px;
+  }
    /* Tampilkan menu hamburger dan posisikan di atas kanan */
    .hamburger-menu {
     display: block;
@@ -807,45 +844,6 @@ input[type="text"].valid {
     display: none;
   }
 }
-
-  main {
-    flex-direction: column;
-    height: auto;
-    margin-right: 0;
-  }
-
-  .shopping-cart,
-  .payment-info {
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-  }
-
-  .shopping-cart h1,
-  .payment-info h1 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-
-  .cart-table th,
-  .cart-table td {
-    font-size: 0.9em;
-  }
-
-  .product img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .summary h2 {
-    font-size: 1.2em;
-  }
-
-  .checkout-button {
-    width: 100%;
-    font-size: 16px;
-  }
-
 
 /* Untuk layar dengan lebar maksimum 768px (tablet portrait) */
 @media (max-width: 768px) {
