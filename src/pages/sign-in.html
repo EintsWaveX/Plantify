@@ -36,10 +36,12 @@
           alt="Plantify Logo"
           class="logo"
         />
-        <h2> <img src="./../assets/sign-up/waver_hand.svg" alt="">Welcome Back To Plantify</h2>
+        <h2>
+          <img src="./../assets/sign-up/waver_hand.svg" alt="" />Welcome Back To
+          Plantify
+        </h2>
 
-
-        <form class="login-form">
+        <form class="login-form" action="../database/signin.php" method="POST">
           <div class="input-group">
             <label for="username">Username</label>
             <input
@@ -58,23 +60,27 @@
               placeholder="contoh12345"
             />
           </div>
-          <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+          <a href="forgot-password.html" class="forgot-password"
+            >Forgot Password?</a
+          >
 
-          <button id="sign-in-btn" type="button" class="sign-in-btn" onclick="location.href='/Plantify/src/pages/main-menu.html'">SIGN IN</button>
+          <button type="submit" class="sign-in-btn">SIGN IN</button>
+          </button>
         </form>
 
         <div class="or-divider">OR</div>
 
-        <button class="google-sign-in" onclick="location.href='/Plantify/src/pages/shipping-details-form.html'">
-          <img
-            src="./../assets/sign-in/google.svg"
-            alt="Google Logo"
-          />
+        <button
+          class="google-sign-in"
+          onclick="location.href='../pages/shipping-details-form.html'"
+        >
+          <img src="./../assets/sign-in/google.svg" alt="Google Logo" />
           Sign In With Google Account
         </button>
 
         <div class="new-user">
-          New User? <a href="sign-up.html" class="create-account">Create Account</a>
+          New User?
+          <a href="sign-up.html" class="create-account">Create Account</a>
         </div>
       </div>
     </div>
@@ -126,13 +132,16 @@
       }
 
       setInterval(updatePlantInfo, 2000);
-      
-      document.getElementById('sign-in-btn').addEventListener('click', function() {
-        // Mengirimkan form secara manual
-        document.querySelector('.login-form').submit();
-        // Mengarahkan ke halaman yang diinginkan
-        window.location.href = '/Plantify/src/pages/shipping-details-form.html';
-      });
+
+      document
+        .getElementById("sign-in-btn")
+        .addEventListener("click", function () {
+          // Mengirimkan form secara manual
+          document.querySelector(".login-form").submit();
+          // Mengarahkan ke halaman yang diinginkan
+          window.location.href =
+            "../pages/shipping-details-form.html";
+        });
     </script>
   </body>
 </html>

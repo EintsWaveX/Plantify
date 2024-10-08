@@ -7,7 +7,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: url(/Plantify/src/assets/admin-login/image.png) no-repeat center
+  background: url(../assets/admin-login/image.png) no-repeat center
     center/cover;
   height: 100vh;
   display: flex;
@@ -209,4 +209,16 @@ button:hover {
     font-size: 0.95rem;
     padding: 10px;
   }
+}
+
+.error-message {
+  width: 100%;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
 }

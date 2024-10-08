@@ -41,7 +41,11 @@
           Plantify
         </h2>
 
-        <form class="login-form">
+        <form
+          class="login-form"
+          action="../database/signup.php"
+          method="POST"
+        >
           <p>Let's create your account!</p>
           <div class="input-group">
             <label for="username">Username</label>
@@ -50,6 +54,16 @@
               id="username"
               name="username"
               placeholder="contoh123"
+            />
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="youremail@example.com"
+              required
             />
           </div>
           <div class="input-group">
@@ -62,20 +76,14 @@
             />
           </div>
           <a href="#" class="forgot-password">Valid Account!</a>
-          <button
-            type="button"
-            class="sign-in-btn"
-            onclick="location.href='./sign-in.html'"
-          >
-            SIGN UP
-          </button>
+          <button type="submit" class="sign-in-btn">SIGN UP</button>
         </form>
 
         <div class="or-divider">OR</div>
 
         <button
           class="google-sign-in"
-          onclick="location.href='/Plantify/src/pages/shipping-details-form.html'"
+          onclick="location.href='../pages/shipping-details-form.html'"
         >
           <img src="./../assets/sign-up/google.svg" alt="Google Logo" />
           Sign Up With Google Account
