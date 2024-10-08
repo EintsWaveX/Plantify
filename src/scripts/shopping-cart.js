@@ -157,5 +157,24 @@ document.getElementById('feedback-form').addEventListener('submit', function(eve
   document.getElementById('feedback-modal').style.display = 'none';
 });
 
+function toggleDropdownMenu() {
+  var menu = document.getElementById('dropdown-menu');
+  menu.classList.toggle('show');
+}
+
+// Optional: Tutup dropdown menu jika pengguna mengklik di luar menu
+window.onclick = function(event) {
+  if (!event.target.closest('.hamburger-menu')) {
+      var dropdowns = document.getElementsByClassName('dropdown-menu');
+      for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+      }
+  }
+}
+
+
 
 

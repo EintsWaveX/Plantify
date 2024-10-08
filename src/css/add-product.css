@@ -74,9 +74,563 @@
     background-color: #2ecc71;
     color: white;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .product-list button:hover {
     background-color: #27ae60;
   }
   
+  /* Responsive Styles */
+
+
+@media (max-width: 480px) {
+  /* Further adjustments for smaller screens */
+  .product-form label,
+  .product-form input,
+  .product-form select {
+    font-size: 12px;
+  }
+
+  .product-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .admin-panel h2,
+  .product-list h2 {
+    font-size: 20px;
+  }
+}
+
+/* Penyesuaian responsif untuk tabel daftar produk */
+@media (max-width: 768px) {
+  /* Sembunyikan kolom yang kurang penting */
+  .product-list th:nth-child(4),
+  .product-list td:nth-child(4), /* Scientific Name */
+  .product-list th:nth-child(6),
+  .product-list td:nth-child(6)  /* Rating */
+  {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Sembunyikan kolom tambahan pada layar lebih kecil */
+  .product-list th:nth-child(3),
+  .product-list td:nth-child(3), /* Category */
+  .product-list th:nth-child(5),
+  .product-list td:nth-child(5)  /* Price */
+  {
+    display: none;
+  }
+
+  /* Ubah tabel menjadi tampilan blok */
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+    display: block;
+  }
+
+  /* Sembunyikan header tabel */
+  .product-list thead {
+    display: none;
+  }
+
+  .product-list tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .product-list td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .product-list td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Penyesuaian ukuran gambar */
+  .product-list td img {
+    width: 60px;
+    height: auto;
+  }
+}
+
+/* Penyesuaian responsif untuk tabel daftar produk */
+@media (max-width: 768px) {
+  /* Sembunyikan kolom yang kurang penting */
+  .product-list th:nth-child(4),
+  .product-list td:nth-child(4), /* Scientific Name */
+  .product-list th:nth-child(6),
+  .product-list td:nth-child(6)  /* Rating */
+  {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Sembunyikan kolom tambahan pada layar lebih kecil */
+  .product-list th:nth-child(3),
+  .product-list td:nth-child(3), /* Category */
+  .product-list th:nth-child(5),
+  .product-list td:nth-child(5)  /* Price */
+  {
+    display: none;
+  }
+
+  /* Ubah tabel menjadi tampilan blok */
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+    display: block;
+  }
+
+  /* Sembunyikan header tabel */
+  .product-list thead {
+    display: none;
+  }
+
+  .product-list tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .product-list td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .product-list td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Penyesuaian ukuran gambar */
+  .product-list td img {
+    width: 60px;
+    height: auto;
+  }
+}
+/* CSS for Edit Modal */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  animation: modalFadeIn 0.5s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; margin-top: -50px; }
+  to { opacity: 1; margin-top: 0; }
+}
+
+.close-button {
+  color: #aaa;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #28a745; /* Match with your theme */
+  text-align: center;
+  font-size: 28px;
+}
+
+#edit-product-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-product-form label {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+#edit-product-form input[type="text"],
+#edit-product-form input[type="number"],
+#edit-product-form input[type="file"],
+#edit-product-form select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#edit-product-form input[type="file"] {
+  padding: 0;
+}
+
+#edit-product-form button[type="submit"] {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #28a745, #218838);
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+#edit-product-form button[type="submit"]:hover {
+  background: linear-gradient(90deg, #218838, #1e7e34);
+}
+
+#edit-product-form input[type="number"]::-webkit-inner-spin-button, 
+#edit-product-form input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .close-button {
+    right: 15px;
+    top: 10px;
+    font-size: 25px;
+  }
+
+  #edit-product-form button[type="submit"] {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-form label,
+  .product-form input,
+  .product-form select {
+    font-size: 12px;
+  }
+
+  .product-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .admin-panel h2,
+  .product-list h2 {
+    font-size: 20px;
+  }
+
+  /* Hide additional columns on smaller screens */
+  .product-list th:nth-child(3),
+  .product-list td:nth-child(3), /* Category */
+  .product-list th:nth-child(5),
+  .product-list td:nth-child(5)  /* Price */
+  {
+    display: none;
+  }
+
+  /* Make the table responsive */
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+    display: block;
+  }
+
+  /* Hide table headers */
+  .product-list thead {
+    display: none;
+  }
+
+  .product-list tr {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .product-list td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+    border: none;
+  }
+
+  .product-list td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+  }
+
+  /* Adjust image size */
+  .product-list td img {
+    width: 80px;
+    height: auto;
+  }
+
+  .product-list a.edit-button,
+  .product-list a.delete-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .product-list a.edit-button {
+    background-color: #4CAF50; /* Green background for edit */
+  }
+
+  .product-list a.delete-button {
+    background-color: #f44336; /* Red background for delete */
+  }
+}
+
+/* Base Styles for Admin Panel and Product List */
+.admin-panel {
+  margin: 30px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.product-form label {
+  font-weight: bold;
+}
+
+.product-form input,
+.product-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.product-form button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-form button:hover {
+  background-color: #2980b9;
+}
+
+.product-list {
+  margin-top: 40px;
+}
+
+.product-list h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.product-list th,
+.product-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-list th {
+  background-color: #f1f1f1;
+}
+
+.product-list tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.product-list a.edit-button,
+.product-list a.delete-button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.product-list a.edit-button {
+  background-color: #2ecc71;
+}
+
+.product-list a.edit-button:hover {
+  background-color: #27ae60;
+}
+
+.product-list a.delete-button {
+  background-color: #e74c3c;
+}
+
+.product-list a.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Styles */
+
+/* For Tablets and Small Screens */
+@media (max-width: 768px) {
+  /* Hide less important columns */
+  .product-list th:nth-child(4),
+  .product-list td:nth-child(4), /* Scientific Name */
+  .product-list th:nth-child(6),
+  .product-list td:nth-child(6)  /* Rating */
+  {
+      display: none;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  /* Convert table to card layout */
+  .product-list table,
+  .product-list thead,
+  .product-list tbody,
+  .product-list th,
+  .product-list td,
+  .product-list tr {
+      display: block;
+  }
+
+  /* Hide table headers */
+  .product-list thead {
+      display: none;
+  }
+
+  .product-list tr {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .product-list td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border: none;
+  }
+
+  .product-list td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: #555;
+      flex-basis: 40%;
+  }
+
+  /* Adjust image size */
+  .product-list td img {
+      width: 60px;
+      height: auto;
+      border-radius: 4px;
+  }
+
+  /* Adjust button layout */
+  .product-list td a.edit-button,
+  .product-list td a.delete-button {
+      margin-top: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+  }
+
+  /* Ensure buttons are stacked vertically */
+  .product-list td a.edit-button,
+  .product-list td a.delete-button {
+      display: inline-block;
+      width: 48%;
+      text-align: center;
+  }
+
+  /* Optional: Add spacing between buttons */
+  .product-list td a.edit-button {
+      margin-right: 4%;
+  }
+
+  /* Enhance spacing for form elements */
+  .product-form label,
+  .product-form input,
+  .product-form select,
+  .product-form button {
+      font-size: 14px;
+  }
+
+  .product-form button {
+      padding: 10px;
+  }
+
+  /* Enhance headings */
+  .admin-panel h2,
+  .product-list h2 {
+      font-size: 22px;
+  }
+}
+

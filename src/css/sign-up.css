@@ -96,7 +96,7 @@ body {
 }
 
 .logo {
-  width: 80px;
+  width: 300px;
   margin-bottom: 20px;
 }
 
@@ -252,4 +252,78 @@ input[type="password"] {
   margin-right: 20px;
   position: relative;
   top: 18px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .container {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .kiri,
+  .kanan {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .kiri {
+      display: none; /* Hide the kiri section on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .sign-in-btn,
+  .google-sign-in {
+      width: 60%;
+  }
+
+  .kanan h2 {
+      font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-in-btn,
+  .google-sign-in {
+      width: 80%;
+  }
+
+  .logo {
+      width: 300px;
+  }
+
+  .kanan h2 {
+      font-size: 1.5rem;
+  }
+
+  .input-group label {
+      font-size: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+      font-size: 0.9rem;
+  }
+
+  .forgot-password {
+      font-size: 1rem;
+  }
+
+  .sign-in-btn {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(
+      to right, /* Menggunakan 'to right' untuk gradasi horizontal */
+      rgba(120, 255, 42, 0.2) 0%,
+      rgba(248, 242, 235, 1) 100%
+    );
+    background-repeat: no-repeat; /* Mencegah pengulangan */
+    background-attachment: fixed; /* Menetapkan gradient ke viewport */
+    background-size: 100% 100%; /* Memastikan gradient menutupi seluruh layar */
+  }
 }

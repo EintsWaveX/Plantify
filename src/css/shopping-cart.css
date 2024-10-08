@@ -690,6 +690,355 @@ input[type="text"].valid {
   right: 10px;
 }
 
+.hamburger-menu {
+  display: none; /* Sembunyikan secara default */
+}
+
+.hamburger-menu img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #142e38;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive Styles */
+
+/* Untuk layar dengan lebar maksimum 1024px (tablet landscape) */
+@media (max-width: 1024px) {
+   /* Tampilkan menu hamburger dan posisikan di atas kanan */
+   .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posisi di atas kanan */
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+}
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav {
+    display: none; /* Sembunyikan menu navigasi */
+  }
+
+  .nav button {
+    width: 100%;
+    padding: 10px;
+    font-size: large;
+  }
+
+  .menu ul {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* Sembunyikan navigasi biasa */
+  .nav {
+    display: none;
+  }
+
+  /* Sesuaikan ukuran ikon hamburger */
+  .hamburger-menu img {
+    width: 30px;
+    height: 30px;
+  }
+
+  dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #142e38;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+  }
+
+  .dropdown-menu button {
+    background: none;
+    color: white;
+    text-align: left;
+    padding: 10px 0;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  /* Styling untuk menu dropdown */
+  .menu ul {
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 20px; /* Muncul di sebelah kiri */
+    background-color: #142e38;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Tersembunyi secara default */
+  }
+
+  /* Tampilkan menu saat ikon hamburger diklik */
+  .menu ul.show {
+    display: flex;
+  }
+
+  /* Sembunyikan ikon menu lainnya */
+  .menu ul li {
+    display: none;
+  }
+}
+
+  main {
+    flex-direction: column;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .shopping-cart,
+  .payment-info {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .shopping-cart h1,
+  .payment-info h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.9em;
+  }
+
+  .product img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .summary h2 {
+    font-size: 1.2em;
+  }
+
+  .checkout-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+
+/* Untuk layar dengan lebar maksimum 768px (tablet portrait) */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Sembunyikan menu navigasi */
+  }
+
+  /* Tampilkan menu hamburger dan posisikan di atas kanan */
+  /* Tampilkan menu hamburger dan posisikan di atas kanan */
+  .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posisi di atas kanan */
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+}
+
+  /* Styling untuk menu dropdown */
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #142e38;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+  }
+
+  .dropdown-menu button {
+    background: none;
+    color: white;
+    text-align: left;
+    padding: 10px 0;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .menu ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .cart-table,
+  .summary {
+    font-size: 0.9em;
+  }
+
+  .summary h2 {
+    font-size: 1em;
+  }
+
+  .checkout-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Untuk layar dengan lebar maksimum 480px (ponsel) */
+@media (max-width: 480px) {
+  header {
+    padding: 5px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .menu ul {
+    padding: 5px;
+  }
+
+  .menu ul li img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .shopping-cart h1,
+  .payment-info h1 {
+    font-size: 1.2em;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  .product img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .product-details h2 {
+    font-size: 1em;
+  }
+
+  .summary h2 {
+    font-size: 1em;
+  }
+
+  .checkout-button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .input-group label,
+  .expiration label,
+  .cvv label {
+    font-size: 0.9em;
+  }
+
+  .input-group input[type="text"],
+  .cvv input {
+    font-size: 0.9em;
+  }
+
+  .expiration select {
+    font-size: 0.9em;
+  }
+
+  .rating label {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Sembunyikan navigasi biasa */
+  .nav {
+    display: none;
+  }
+
+  /* Tampilkan menu hamburger */
+   /* Tampilkan menu hamburger dan posisikan di atas kanan */
+   .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Posisi di atas kanan */
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+}
+
+  /* Sesuaikan ukuran ikon hamburger */
+  .hamburger-menu img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Styling untuk menu dropdown */
+  .menu ul {
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 20px; /* Muncul di sebelah kiri */
+    background-color: #142e38;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Tersembunyi secara default */
+  }
+
+  /* Tampilkan menu saat ikon hamburger diklik */
+  .menu ul.show {
+    display: flex;
+  }
+
+  /* Sembunyikan ikon menu lainnya */
+  .menu ul li {
+    display: none;
+  }
+}
+
+.payment-info h2 {
+  margin-top: 100px; /* Atur jarak atas */
+  margin-bottom: 10px; /* Atur jarak bawah */
+  margin-left: 0; /* Atur jarak kiri */
+  margin-right: 0; /* Atur jarak kanan */
+  text-align:end ;
+}
+
+
 
 
 

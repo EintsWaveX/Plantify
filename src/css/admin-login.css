@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,16 +7,8 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: rgb(246, 196, 139); /* Solid background color */
-  background: linear-gradient(
-    90deg,
-    rgba(120, 255, 42, 0.2) 40%,
-    rgba(120, 255, 42, 0.1) 50%,
-    rgba(248, 242, 235, 1) 100%
-  );
-  background: url(/Plantify/src/assets/admin-login/image.png);
-  background-position: center;
-  background-size: cover;
+  background: url(/Plantify/src/assets/admin-login/image.png) no-repeat center
+    center/cover;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -23,85 +16,197 @@ body {
   color: #333;
 }
 
+/* Login Container */
 .login-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: stretch; /* Changed to stretch to make kanan full height */
-  background-color: rgba(255, 255, 255, 0.8); /* Increased opacity for better readability */
+  align-items: stretch;
+  background-color: rgba(255, 255, 255, 0.9);
   width: 60%;
+  max-width: 1200px;
   height: 70%;
   border-radius: 20px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4); /* Increased shadow for better depth */
-  overflow: hidden; /* Ensure child elements do not overflow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
+/* Left Section (Login Form) */
 .kiri {
-  width: 50%; /* Adjusted width to move it more to the center */
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px; /* Increased padding for better spacing */
+  padding: 40px;
 }
 
 .kiri h2 {
-  color: black;
-  margin: 20px;
-  font-size: 2rem; /* Increased font size for better readability */
+  color: #000;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
 }
 
-input[type="text"],
-input[type="password"] {
+.kiri form {
   width: 100%;
-  padding: 15px; /* Increased padding for better user experience */
-  margin: 15px 0; /* Increased margin for better spacing */
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem; /* Increased font size for better readability */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 button {
   width: 100%;
-  padding: 15px; /* Increased padding for better user experience */
-  margin: 15px 0; /* Increased margin for better spacing */
+  padding: 15px;
+  margin-top: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; /* Changed background color to blue */
+  background-color: #007bff;
   color: #fff;
-  font-size: 1.2rem; /* Increased font size for better readability */
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for smoother hover effect and transform */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
+/* Right Section (Welcome Content) */
 .kanan {
-  color: white;
+  width: 50%;
+  background-color: #5344b2;
+  color: #fff;
   text-align: center;
-  width: 50%; /* Adjusted width to match kiri */
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px; /* Increased padding for better spacing */
-  background-color: #5344b2; /* Added background color */
-  border-top-left-radius: 100px; /* Adjusted border radius to cover full height */
-  border-bottom-left-radius: 100px; /* Adjusted border radius to cover full height */
-}
-
-.kanan h2 {
-  color: white;
-  margin: 20px;
-  font-size: 2rem; /* Increased font size for better readability */
+  position: relative;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .kanan img {
-  position: fixed;
-  top: 30%;
-  left: 55%;
-  
-  object-fit: cover;
+  width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.kanan h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.kanan p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .login-container {
+    width: 80%;
+    height: 80%;
+  }
+
+  .kanan img {
+    width: 250px;
+  }
+
+  .kiri h2,
+  .kanan h2 {
+    font-size: 1.8rem;
+  }
+
+  .kanan p {
+    max-width: 250px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .kiri,
+  .kanan {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  /* **Reordered Sections: 'kanan' above 'kiri'** */
+  .kanan {
+    order: 1; /* Make 'kanan' appear first */
+    padding: 30px 20px;
+  }
+
+  .kiri {
+    order: 2; /* Make 'kiri' appear second */
+    padding: 30px 20px;
+  }
+
+  .kanan img {
+    width: 250px;
+    margin-bottom: 15px;
+  }
+
+  .kiri h2,
+  .kanan h2 {
+    font-size: 1.6rem;
+  }
+
+  .kanan p {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kiri h2,
+  .kanan h2 {
+    font-size: 1.4rem;
+  }
+
+  .kanan p {
+    font-size: 0.85rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }
